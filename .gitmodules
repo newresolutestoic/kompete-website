@@ -1,0 +1,3 @@
+[submodule "research"]
+	path = research
+	url = git@github.com:newresolutestoic/kompete-research.git
