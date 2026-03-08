@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompete.ai — Autonomous Competitive Intelligence</title>
+    <meta name="description" content="8 AI agents that monitor, analyze, and brief you on every competitor move. Stay 2 moves ahead.">
+
+    <!-- OG Tags -->
+    <meta property="og:title" content="Kompete.ai — Stay 2 Moves Ahead">
+    <meta property="og:description" content="8 AI agents that monitor, analyze, and brief you on every competitor move autonomously.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kompete.ai">
+
+    <!-- Fonts: DM Sans (body) + Instrument Serif (display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================================ -->
+    <!-- SECTION 1: NAVIGATION BAR                    -->
+    <!-- Sticky, sparse, CTA always visible.          -->
+    <!-- ============================================ -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Kompete<span>.ai</span></a>
+            <div class="nav-links" id="nav-links">
+                <a href="#agents">AI Agents</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Proof</a>
+                <a href="#faq">FAQ</a>
+                <a href="#waitlist" class="nav-cta">Get Early Access</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: HERO                              -->
+    <!-- Chess metaphor from investor deck. Category  -->
+    <!-- Creator positioning. 8 AI agents headline.   -->
+    <!-- Product mockup showing agents in action.     -->
+    <!-- ============================================ -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Autonomous Competitive Intelligence</div>
+            <h1>Stay 2 Moves Ahead<br><em>of Every Competitor.</em></h1>
+            <p class="hero-tagline">Monitor Continuously. Predict Confidently. Compete Strategically.</p>
+            <p class="hero-sub">Kompete deploys 8 specialized AI agents that research, monitor, and brief you on every competitor move — pricing shifts, feature launches, positioning changes — so you never get blindsided again.</p>
+            <div class="hero-cta-group">
+                <a href="#waitlist" class="btn-primary">Get Early Access</a>
+                <span class="cta-micro">Free for early adopters. No credit card required.</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-dots"><span></span><span></span><span></span></div>
+                    <span class="mockup-title">Kompete — Weekly Strategic Brief</span>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-alert alert-red">
+                        <span class="alert-icon">!</span>
+                        <div>
+                            <strong>Pricing Agent: Competitor X dropped Enterprise tier by 20%</strong>
+                            <p>3 of your active prospects affected. Confidence: 94%</p>
+                        </div>
+                    </div>
+                    <div class="mockup-alert alert-amber">
+                        <span class="alert-icon">~</span>
+                        <div>
+                            <strong>Product Agent: Competitor Y launched AI reporting</strong>
+                            <p>Matches your Q3 roadmap item. 4 G2 reviews already mention it.</p>
+                        </div>
+                    </div>
+                    <div class="mockup-alert alert-green">
+                        <span class="alert-icon">&uarr;</span>
+                        <div>
+                            <strong>Position Agent: Messaging drift detected</strong>
+                            <p>Competitor Z pivoted from "analytics" to "AI copilot." Changed 3 days ago.</p>
+                        </div>
+                    </div>
+                    <div class="mockup-recommendation">
+                        <strong>Synthesis Agent:</strong> Update battle card for Competitor X. Alert sales re: pricing before Tuesday pipeline review. <span class="confidence-tag">Confidence: High</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: SOCIAL PROOF BAR                  -->
+    <!-- Corrected credentials from investor deck.    -->
+    <!-- ============================================ -->
+    <section id="social-proof-bar">
+        <div class="proof-bar-inner">
+            <p class="proof-text">Built by alumni of</p>
+            <div class="proof-logos">
+                <span class="proof-logo">IIT Bombay</span>
+                <span class="proof-divider"></span>
+                <span class="proof-logo">IIM Ahmedabad</span>
+                <span class="proof-divider"></span>
+                <span class="proof-logo">Amazon</span>
+                <span class="proof-divider"></span>
+                <span class="proof-logo">HighRadius</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: PROBLEM AGITATION                 -->
+    <!-- 3 pain cards sourced from 27 interviews.     -->
+    <!-- Incorporates $200K consulting from deck.     -->
+    <!-- ============================================ -->
+    <section id="pain">
+        <div class="section-container">
+            <h2 class="section-label">The problem</h2>
+            <p class="section-headline">$200K consulting reports. 15-hour research sprints.<br>And you're still getting blindsided.</p>
+            <div class="pain-grid">
+                <div class="pain-card" data-reveal>
+                    <span class="pain-number">01</span>
+                    <h3>Your team wastes 15+ hours a week tracking competitors manually.</h3>
+                    <p>Browsing websites, checking LinkedIn, reading G2 reviews, building spreadsheets that go stale the moment they're done. Every one of our 27 interviewees told us the same thing.</p>
+                </div>
+                <div class="pain-card" data-reveal>
+                    <span class="pain-number">02</span>
+                    <h3>You discover competitor moves weeks — sometimes months — too late.</h3>
+                    <p>A competitor changed pricing. Launched a feature. Won your prospect. By the time you hear about it through Slack or a lost deal, the damage is done.</p>
+                </div>
+                <div class="pain-card" data-reveal>
+                    <span class="pain-number">03</span>
+                    <h3>Big 4 charges $200K per engagement — and the data is still stale.</h3>
+                    <p>Everest Group reports cost millions. KPMG engagements take 3 months with 5-6 consultants. By the time the analysis lands, your competitors have already moved again.</p>
+                </div>
+            </div>
+            <p class="pain-kicker">Legacy tools and ChatGPT give you 70% of the picture. No monitoring, no memory, no system of record. <strong>You deserve an intelligence system, not a search bar.</strong></p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: 8 AI AGENTS                       -->
+    <!-- Core product concept from investor deck.     -->
+    <!-- ============================================ -->
+    <section id="agents">
+        <div class="section-container">
+            <h2 class="section-label">The solution</h2>
+            <p class="section-headline">8 Specialized AI Agents.<br>Working 24/7 so you don't have to.</p>
+            <p class="section-sub">Each agent is purpose-built for a specific dimension of competitive intelligence. Together, they give you the complete picture — continuously updated, always synthesized.</p>
+            <div class="agents-grid">
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">01</span>
+                    <h4>Pricing Intelligence</h4>
+                    <p>Detects pricing changes, packaging shifts, and discount patterns across your competitive landscape.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">02</span>
+                    <h4>Product & Feature</h4>
+                    <p>Tracks feature launches, product updates, changelog entries, and roadmap signals in real time.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">03</span>
+                    <h4>Sentiment & Reviews</h4>
+                    <p>Analyzes G2, Capterra, and social sentiment to surface shifting customer perception trends.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">04</span>
+                    <h4>Market Position</h4>
+                    <p>Monitors positioning drift, messaging changes, and differentiation claims across competitor sites.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">05</span>
+                    <h4>GTM & Sales Intel</h4>
+                    <p>Generates auto-updating battle cards, win/loss patterns, and sales enablement content.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">06</span>
+                    <h4>Financial Intelligence</h4>
+                    <p>Tracks revenue signals, funding rounds, growth indicators, and financial health markers.</p>
+                </div>
+                <div class="agent-card" data-reveal>
+                    <span class="agent-number">07</span>
+                    <h4>Talent & Culture</h4>
+                    <p>Monitors hiring patterns, key hires, org changes, and team growth signals that predict strategic moves.</p>
+                </div>
+                <div class="agent-card agent-card-synthesis" data-reveal>
+                    <span class="agent-number">08</span>
+                    <h4>Strategic Synthesis</h4>
+                    <p>Combines all 7 agents into executive briefs, recommended actions, and confidence-scored predictions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: DIFFERENTIATORS                   -->
+    <!-- 4 key differentiators from investor deck.    -->
+    <!-- ============================================ -->
+    <section id="differentiators">
+        <div class="section-container">
+            <h2 class="section-label">Why we're different</h2>
+            <p class="section-headline">Not another dashboard.<br>An intelligence engine.</p>
+            <div class="diff-grid">
+                <div class="diff-card" data-reveal>
+                    <h4>Qualitative + Quantitative at Scale</h4>
+                    <p>We analyze both structured data (pricing, features, financials) and unstructured intelligence (messaging, positioning, sentiment) — something no legacy tool does.</p>
+                </div>
+                <div class="diff-card" data-reveal>
+                    <h4>Positioning Drift Detection</h4>
+                    <p>Competitors don't announce strategy shifts. Kompete detects subtle changes in messaging, website copy, and positioning over time — before they become obvious.</p>
+                </div>
+                <div class="diff-card" data-reveal>
+                    <h4>Predictive Intelligence</h4>
+                    <p>Not just what happened, but what's likely next. Every prediction comes with a confidence score so you know when to act and when to watch.</p>
+                </div>
+                <div class="diff-card" data-reveal>
+                    <h4>Evidence-Based Recommendations</h4>
+                    <p>Every recommendation backed by data, not opinions. See the full evidence trail — from raw source to synthesized action.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: HOW IT WORKS (3 Steps)            -->
+    <!-- ============================================ -->
+    <section id="how-it-works">
+        <div class="section-container">
+            <h2 class="section-label">How it works</h2>
+            <p class="section-headline">Three steps. Five minutes.<br>Intelligence on autopilot.</p>
+            <div class="steps-grid">
+                <div class="step-card" data-reveal>
+                    <span class="step-number">1</span>
+                    <h4>Tell us who you compete with</h4>
+                    <p>Add your company and competitors. Kompete's 8 agents immediately begin scanning websites, pricing pages, reviews, job postings, social media, and press mentions.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-card" data-reveal>
+                    <span class="step-number">2</span>
+                    <h4>AI builds your intelligence baseline</h4>
+                    <p>Within hours, get a complete competitive profile — features, positioning, pricing signals, strengths, vulnerabilities, and market position. Your system of record, built automatically.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-card" data-reveal>
+                    <span class="step-number">3</span>
+                    <h4>Get briefed, not buried</h4>
+                    <p>Receive weekly synthesized briefs with what changed, what it means, and what to do — with confidence scores. Battle cards update themselves. Alerts fire when it matters.</p>
+                </div>
+            </div>
+            <div class="steps-cta">
+                <a href="#waitlist" class="btn-primary">Get Early Access</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: OLD WAY vs NEW WAY                -->
+    <!-- ============================================ -->
+    <section id="comparison">
+        <div class="section-container">
+            <h2 class="section-label">The shift</h2>
+            <p class="section-headline">The old way is broken. Here's the new way.</p>
+            <div class="comparison-table">
+                <div class="comparison-col old-way">
+                    <div class="comparison-header">Without Kompete</div>
+                    <ul>
+                        <li><span class="x-mark">&times;</span> 15+ hrs/week browsing competitor websites manually</li>
+                        <li><span class="x-mark">&times;</span> Battle cards outdated within days</li>
+                        <li><span class="x-mark">&times;</span> Competitor pricing is a black box</li>
+                        <li><span class="x-mark">&times;</span> $200K consulting engagements for stale insights</li>
+                        <li><span class="x-mark">&times;</span> Intel scattered across Notion, Slack, and people's heads</li>
+                        <li><span class="x-mark">&times;</span> Discover competitor moves from lost deals</li>
+                        <li><span class="x-mark">&times;</span> 5-10 tools and still no unified view</li>
+                    </ul>
+                </div>
+                <div class="comparison-col new-way">
+                    <div class="comparison-header">With Kompete</div>
+                    <ul>
+                        <li><span class="check-mark">&#10003;</span> 8 AI agents monitoring 24/7 — zero manual research</li>
+                        <li><span class="check-mark">&#10003;</span> Battle cards that update themselves in real-time</li>
+                        <li><span class="check-mark">&#10003;</span> Pricing shift detection the day it happens</li>
+                        <li><span class="check-mark">&#10003;</span> Fraction of the cost of a single consulting engagement</li>
+                        <li><span class="check-mark">&#10003;</span> One system of record for all competitive intelligence</li>
+                        <li><span class="check-mark">&#10003;</span> Predictive alerts before your deals are at risk</li>
+                        <li><span class="check-mark">&#10003;</span> Confidence-scored recommendations, not data dumps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 9: TESTIMONIALS                      -->
+    <!-- Real quotes from 27 customer interviews.     -->
+    <!-- ============================================ -->
+    <section id="testimonials">
+        <div class="section-container">
+            <h2 class="section-label">What people are saying</h2>
+            <p class="section-headline">From 27 customer interviews across B2B SaaS</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"This can reduce 25 to 30% of headcount on my team. The insights look amazing — for Oracle EPM and OneStream, I remember in my head how they're performing. This information is spot on."</p>
+                    <div class="testimonial-author">
+                        <strong>Anjali Rai</strong>
+                        <span>Competitive Intelligence Analyst, Anaplan</span>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"That will help us spend more time on strategy than hunting. We have to keep going back and doing it manually — this changes that."</p>
+                    <div class="testimonial-author">
+                        <strong>Jeevithan Ramesh</strong>
+                        <span>Product Marketing, Inkle</span>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"I created fake LinkedIn profiles, reached out to competitor employees... you have to do all those things. I need something to keep track of what competitors are doing."</p>
+                    <div class="testimonial-author">
+                        <strong>Sai Bhaskar Devatha</strong>
+                        <span>Senior Product Manager, Eltropy ($70M+ ARR)</span>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"Competitor tables are our biggest contributor of MQLs. First one takes 3-4 days. If this was automated and always current — that's a game changer for pipeline."</p>
+                    <div class="testimonial-author">
+                        <strong>Sankalp Srivastava</strong>
+                        <span>Product Marketing Manager, HighRadius</span>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"Automating competitive research would free consultants for higher-level analysis. KPMG would use a trusted tool to accelerate Phase 1 of every engagement."</p>
+                    <div class="testimonial-author">
+                        <strong>Rashi Sekhsaria</strong>
+                        <span>Pricing Analyst, KPMG</span>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-reveal>
+                    <p class="testimonial-quote">"They launched the same product two days before us. We had no idea. Battle cards become stale within a week — the moment you publish, the competitor responds."</p>
+                    <div class="testimonial-author">
+                        <strong>Tanvir Rajput</strong>
+                        <span>Product Marketing Manager, HackerRank</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 10: FAQ                              -->
+    <!-- Top objections from CXO personas.            -->
+    <!-- ============================================ -->
+    <section id="faq">
+        <div class="section-container">
+            <h2 class="section-label">FAQ</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How is this different from just using ChatGPT for competitor research?</summary>
+                    <p>ChatGPT gives you a point-in-time answer. Kompete gives you continuous monitoring, change detection, historical tracking, and a persistent system of record. ChatGPT forgets. Kompete's 8 agents remember every competitor move and tell you what changed, why it matters, and what to do — with confidence scores — without you asking.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What about Klue, Crayon, or other CI platforms?</summary>
+                    <p>Legacy CI tools were built before the AI era and charge $40,000+/year for what's essentially formatted battle cards. Kompete is AI-native from day one — autonomous research, intelligent synthesis, predictive intelligence, and evidence-based recommendations at a fraction of the cost.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How accurate is the intelligence?</summary>
+                    <p>Every insight comes with a confidence score and an evidence trail back to the source. We combine multiple data sources and cross-validate signals before surfacing recommendations. If our confidence is low, we tell you — so you always know when to act and when to verify.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>When do you launch?</summary>
+                    <p>We're in private beta with select design partners now. General availability is planned for Q2 2026. Early access members get priority onboarding and launch-day pricing locked in.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>My PMM / analyst already handles competitive intelligence. Why do I need this?</summary>
+                    <p>Your PMM is talented — and spending 40% of their time on research instead of strategy. Kompete automates the research so your team can focus on what actually drives pipeline: messaging, positioning, and sales enablement. Think of it as giving your PMM 8 dedicated research analysts.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MARKET STATS BAR                             -->
+    <!-- From investor deck: market size, CAGR, etc.  -->
+    <!-- ============================================ -->
+    <section id="stats">
+        <div class="section-container">
+            <div class="stats-bar">
+                <div class="stat" data-reveal>
+                    <span class="stat-number">$1.5B+</span>
+                    <span class="stat-label">CI Tools Market</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat-number">20%</span>
+                    <span class="stat-label">Annual Growth (CAGR)</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat-number">3.2x</span>
+                    <span class="stat-label">Market Velocity vs. 2024</span>
+                </div>
+                <div class="stat" data-reveal>
+                    <span class="stat-number">94%</span>
+                    <span class="stat-label">Cost Reduction vs. Consulting</span>
+                </div>
+            </div>
+            <p class="stats-text">The LLM breakthrough made this possible. Markets move 3.2x faster than two years ago. The companies that win will be the ones that see it first.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FINAL CTA                                    -->
+    <!-- Full-width, email capture, micro-copy.       -->
+    <!-- ============================================ -->
+    <section id="waitlist">
+        <div class="section-container waitlist-container">
+            <h2>Your competitors aren't waiting.<br><em>Neither should you.</em></h2>
+            <p class="waitlist-sub">Join the waitlist for Kompete — the first Autonomous Competitive Intelligence platform. Free for early adopters.</p>
+            <form class="waitlist-form" id="waitlist-form">
+                <input type="email" placeholder="Enter your work email" required aria-label="Email address">
+                <button type="submit" class="btn-primary">Get Early Access</button>
+            </form>
+            <p class="waitlist-micro">No spam. No credit card. Early access members get launch-day pricing locked in.</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-logo">Kompete<span>.ai</span></span>
+                <p>Autonomous Competitive Intelligence</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kompete.ai. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

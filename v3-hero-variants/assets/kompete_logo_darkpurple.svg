@@ -1,0 +1,35 @@
+
+<svg width="260" height="56" viewBox="0 0 260 56" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+  <!-- Icon -->
+  <g transform="translate(0,8)">
+
+    <!-- Left wedge -->
+    <polygon points="0,32 16,0 24,32" fill="#312e81"/>
+
+    <!-- Bottom triangle -->
+    <polygon points="16,32 24,16 32,32" fill="#312e81"/>
+
+    <!-- Right wedge -->
+    <polygon points="24,0 48,32 32,32" fill="#312e81"/>
+
+  </g>
+
+  <!-- Wordmark -->
+  <text x="64" y="34"
+        font-family="Geist, Inter, system-ui, -apple-system, sans-serif"
+        font-size="26"
+        font-weight="500"
+        fill="#0F172A">
+    Kompete
+  </text>
+
+  <text x="170" y="34"
+        font-family="Geist, Inter, system-ui, -apple-system, sans-serif"
+        font-size="26"
+        font-weight="500"
+        fill="#312e81">
+    .ai
+  </text>
+
+</svg>

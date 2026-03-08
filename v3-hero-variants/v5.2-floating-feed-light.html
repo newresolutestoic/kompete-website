@@ -26,10 +26,10 @@
     --bg-primary: #ffffff;
     --bg-elevated: #f5f5f7;
     --bg-card: #ffffff;
-    --accent: #6366f1;
-    --accent-light: #818cf8;
-    --accent-glow: rgba(99, 102, 241, 0.10);
-    --accent-border: rgba(99, 102, 241, 0.25);
+    --accent: #312e81;
+    --accent-light: #3730a3;
+    --accent-glow: rgba(49, 46, 129, 0.10);
+    --accent-border: rgba(49, 46, 129, 0.25);
     --text-primary: #111113;
     --text-secondary: #52525b;
     --text-muted: #a1a1aa;
@@ -52,7 +52,7 @@ body {
     font-size: var(--text-body);
     color: var(--text-primary);
     background: var(--bg-primary);
-    background-image: linear-gradient(180deg, rgba(99, 102, 241, 0.04) 0%, transparent 80vh);
+    background-image: linear-gradient(180deg, rgba(49, 46, 129, 0.04) 0%, transparent 80vh);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -376,7 +376,7 @@ ul { list-style: none; }
 .tag-red { background: rgba(220, 38, 38, 0.08); color: var(--red); }
 .tag-amber { background: rgba(202, 138, 4, 0.08); color: var(--amber); }
 .tag-green { background: rgba(22, 163, 74, 0.08); color: var(--green); }
-.tag-blue { background: rgba(99, 102, 241, 0.08); color: var(--accent); }
+.tag-blue { background: rgba(49, 46, 129, 0.08); color: var(--accent); }
 
 .sc-time {
     font-size: 0.6875rem;
@@ -432,7 +432,7 @@ ul { list-style: none; }
 .detail-type.type-red { color: var(--red); background: rgba(220, 38, 38, 0.08); }
 .detail-type.type-amber { color: var(--amber); background: rgba(202, 138, 4, 0.08); }
 .detail-type.type-green { color: var(--green); background: rgba(22, 163, 74, 0.08); }
-.detail-type.type-blue { color: var(--accent); background: rgba(99, 102, 241, 0.08); }
+.detail-type.type-blue { color: var(--accent); background: rgba(49, 46, 129, 0.08); }
 
 .detail-content {
     display: flex;
@@ -463,7 +463,7 @@ ul { list-style: none; }
 
 .detail-deal {
     padding: 0.75rem;
-    background: rgba(99, 102, 241, 0.04);
+    background: rgba(49, 46, 129, 0.04);
     border: 1px solid var(--accent-border);
     border-radius: 8px;
 }
@@ -556,16 +556,16 @@ ul { list-style: none; }
    ============================================ */
 #data-sources {
     padding: 3rem 0 0;
-    background: var(--bg-primary);
+    background: var(--bg-elevated);
 }
 
 .sources-label {
     text-align: center;
-    font-size: 0.6875rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--accent);
     margin-bottom: 1.5rem;
 }
 
@@ -573,7 +573,7 @@ ul { list-style: none; }
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.25rem 2rem;
     flex-wrap: wrap;
     max-width: var(--max-w);
     margin: 0 auto;
@@ -600,7 +600,10 @@ ul { list-style: none; }
 .scroll-feed {
     overflow: hidden;
     padding: 1rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-elevated);
+}
+.scroll-feed:last-of-type {
+    padding-bottom: 3rem;
 }
 
 .scroll-track {
@@ -660,6 +663,9 @@ ul { list-style: none; }
 .tag-pricing { color: #d97706; border-color: rgba(217, 119, 6, 0.2); background: rgba(217, 119, 6, 0.06); }
 .tag-product { color: #2563eb; border-color: rgba(37, 99, 235, 0.2); background: rgba(37, 99, 235, 0.06); }
 .tag-content { color: #db2777; border-color: rgba(219, 39, 119, 0.2); background: rgba(219, 39, 119, 0.06); }
+.tag-social { color: #0ea5e9; border-color: rgba(14, 165, 233, 0.2); background: rgba(14, 165, 233, 0.06); }
+.tag-hiring { color: #f97316; border-color: rgba(249, 115, 22, 0.2); background: rgba(249, 115, 22, 0.06); }
+.tag-funding { color: #14b8a6; border-color: rgba(20, 184, 166, 0.2); background: rgba(20, 184, 166, 0.06); }
 
 .scroll-card-time {
     font-size: 0.6875rem;
@@ -747,7 +753,7 @@ ul { list-style: none; }
 
 .why-tab.active {
     border-left-color: var(--accent);
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(49, 46, 129, 0.08);
 }
 
 .why-tab-num {
@@ -848,7 +854,7 @@ ul { list-style: none; }
 .why-signal.blue .why-signal-icon { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
 .why-signal.purple .why-signal-icon { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
 .why-signal.green .why-signal-icon { background: rgba(16, 185, 129, 0.08); color: #10b981; }
-.why-signal.indigo .why-signal-icon { background: rgba(99, 102, 241, 0.08); color: var(--accent); }
+.why-signal.indigo .why-signal-icon { background: rgba(49, 46, 129, 0.08); color: var(--accent); }
 
 .why-signal-content {
     flex: 1;
@@ -953,7 +959,7 @@ ul { list-style: none; }
 .teams-tab.active {
     color: var(--accent);
     border-color: var(--accent);
-    background: rgba(99, 102, 241, 0.04);
+    background: rgba(49, 46, 129, 0.04);
     font-weight: 600;
 }
 
@@ -1026,7 +1032,7 @@ ul { list-style: none; }
     flex-shrink: 0;
     margin-top: 0.1em;
     border-radius: 50%;
-    background: rgba(99, 102, 241, 0.08);
+    background: rgba(49, 46, 129, 0.08);
     background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%236366f1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
@@ -1063,9 +1069,13 @@ ul { list-style: none; }
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: rgba(99, 102, 241, 0.08);
-    color: var(--accent);
 }
+.teams-scenario-icon.icon-red { background: rgba(239, 68, 68, 0.08); color: var(--red); }
+.teams-scenario-icon.icon-amber { background: rgba(245, 158, 11, 0.08); color: var(--amber); }
+.teams-scenario-icon.icon-green { background: rgba(34, 197, 94, 0.08); color: var(--green); }
+.teams-scenario-icon.icon-blue { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
+.teams-scenario-icon.icon-indigo { background: rgba(49, 46, 129, 0.08); color: var(--accent); }
+.teams-scenario-icon.icon-purple { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
 
 .teams-scenario-text {
     font-size: 0.875rem;
@@ -1206,7 +1216,7 @@ ul { list-style: none; }
 .waitlist-container {
     text-align: center;
     position: relative;
-    background: #818cf8;
+    background: #1e1b4b;
     border-radius: 0;
     padding: 5rem 2rem;
     max-width: none;
@@ -1218,12 +1228,12 @@ ul { list-style: none; }
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
-    color: #111113;
+    color: #ffffff;
 }
 
 .waitlist-sub {
     font-size: 1.0625rem;
-    color: rgba(17, 17, 19, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 2rem;
 }
 
@@ -1236,42 +1246,42 @@ ul { list-style: none; }
 .waitlist-form input {
     flex: 1;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    color: #111113;
+    color: #ffffff;
     font-family: var(--font);
     font-size: var(--text-body);
     outline: none;
     transition: border-color 0.2s;
 }
-.waitlist-form input::placeholder { color: rgba(17, 17, 19, 0.4); }
-.waitlist-form input:focus { border-color: rgba(255, 255, 255, 0.9); outline: none; }
+.waitlist-form input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.waitlist-form input:focus { border-color: rgba(255, 255, 255, 0.5); outline: none; }
 
 .waitlist-success {
     padding: 1.25rem;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
-    color: #111113;
+    color: #ffffff;
     font-weight: 500;
     max-width: 440px;
     margin: 0 auto;
 }
 
 #waitlist .btn-primary {
-    background: #111113;
-    color: #ffffff;
+    background: #ffffff;
+    color: #1e1b4b;
     border-radius: 50px;
     font-weight: 600;
     padding: 0.85rem 2.25rem;
 }
 #waitlist .btn-primary:hover {
-    background: #2d2d3a;
-    color: #ffffff;
+    background: #e4e4e7;
+    color: #1e1b4b;
 }
 #waitlist .cta-micro {
-    color: rgba(17, 17, 19, 0.45);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.875rem;
 }
 
@@ -1417,7 +1427,7 @@ footer {
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="assets/kompete_logo_light.svg" alt="Kompete.ai" class="logo-img">
+                <img src="assets/kompete_logo_darkpurple.svg" alt="Kompete.ai" class="logo-img">
             </a>
             <div class="nav-links" id="nav-links">
                 <a href="#why-kompete">Why Kompete</a>
@@ -1557,19 +1567,18 @@ footer {
                         </div>
                         <div class="detail-section">
                             <strong>What We Found</strong>
-                            <p>Page ranks for "Acmeflow alternative" queries. Claims 40% faster onboarding and lower TCO. Includes 3 customer testimonials — 2 from your target vertical.</p>
+                            <p>Claims 40% faster onboarding and lower TCO. 2 of 3 testimonials target your vertical.</p>
                         </div>
                         <div class="detail-section">
                             <strong>Why It Matters</strong>
-                            <p>This page appears when prospects Google your brand. Their TCO claim contradicts their own G2 reviews. The vertical testimonials target the exact segment your marketing is focused on.</p>
+                            <p>Appears when prospects Google your brand. TCO claim contradicts their own G2 reviews.</p>
                         </div>
                         <div class="detail-section detail-actions">
                             <strong>AI Actions Taken</strong>
                             <ul>
-                                <li>Counter-comparison draft &rarr; sent to marketing via Slack</li>
-                                <li>Claim audit (2 of 3 unsupported) &rarr; emailed to PMM</li>
-                                <li>SEO brief for same keywords &rarr; sent to content team via Slack</li>
-                                <li>Battle card updated &rarr; pushed to sales via Slack</li>
+                                <li>Counter-comparison draft &rarr; marketing via Slack</li>
+                                <li>Claim audit (2 of 3 unsupported) &rarr; PMM</li>
+                                <li>Battle card updated &rarr; sales via Slack</li>
                             </ul>
                         </div>
                     </div>
@@ -1614,6 +1623,26 @@ footer {
                 <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.5 2c0 1.5-1.2 2.7-2.7 2.7H9.1C7.6 4.7 6.4 3.5 6.4 2H2C2 5.7 5 8.7 8.7 8.7v2.6c-3.7 0-6.7 3-6.7 6.7h4.4c0-1.5 1.2-2.7 2.7-2.7h2.7c1.5 0 2.7 1.2 2.7 2.7H19c0-3.7-3-6.7-6.7-6.7V8.7c3.7 0 6.7-3 6.7-6.7h-4.5z"/></svg>
                 Reddit
             </div>
+            <div class="source-item">
+                <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Twitter / X
+            </div>
+            <div class="source-item">
+                <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                Discord
+            </div>
+            <div class="source-item">
+                <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube
+            </div>
+            <div class="source-item">
+                <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M21.807 18.285L13.553.757a1.324 1.324 0 0 0-1.129-.754 1.31 1.31 0 0 0-1.206.626l-8.952 14.5a1.356 1.356 0 0 0 .016 1.455l4.376 6.778a1.408 1.408 0 0 0 1.58.581l12.703-3.757c.389-.115.707-.39.873-.755s.164-.783-.007-1.146zm-1.848.752L8.87 22.009l-4.09-6.337L13.063 3.49l7.896 15.547z"/></svg>
+                Crunchbase
+            </div>
+            <div class="source-item">
+                <svg class="source-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                TrustRadius
+            </div>
         </div>
     </section>
 
@@ -1626,6 +1655,9 @@ footer {
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-pricing">PRICING</span><span class="scroll-card-time">2h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> ACME CORP</div><div class="scroll-card-text">Enterprise plan increased from $299 to $349/mo</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-product">PRODUCT</span><span class="scroll-card-time">3h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> RIVALTECH</div><div class="scroll-card-text">Launched AI-powered analytics dashboard</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-content">CONTENT &amp; SEO</span><span class="scroll-card-time">8h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> RIVALTECH</div><div class="scroll-card-text">Ranking for 14 new high-intent keywords in "enterprise analytics"</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">4h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> CLOUDSTACK</div><div class="scroll-card-text">CEO YouTube demo hit 12K views &mdash; sales team sharing in prospect outreach</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">6h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> ACME CORP</div><div class="scroll-card-text">Twitter/X thread from ex-customer goes viral &mdash; 2.1K engagements on migration pain</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-funding">FUNDING</span><span class="scroll-card-time">1d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> NEXGEN SAAS</div><div class="scroll-card-text">Crunchbase: $30M Series B closed &mdash; APAC expansion confirmed</div></div>
             <!-- duplicate set for seamless loop -->
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">1d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> ACME CORP</div><div class="scroll-card-text">G2 sentiment dropped 12% &mdash; "support response times" cited 8x</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-pr">PR &amp; COMMS</span><span class="scroll-card-time">1d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> NEXGEN SAAS</div><div class="scroll-card-text">Press release: Pivoting to enterprise, SOC 2 compliance now live</div></div>
@@ -1633,6 +1665,9 @@ footer {
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-pricing">PRICING</span><span class="scroll-card-time">2h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> ACME CORP</div><div class="scroll-card-text">Enterprise plan increased from $299 to $349/mo</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-product">PRODUCT</span><span class="scroll-card-time">3h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> RIVALTECH</div><div class="scroll-card-text">Launched AI-powered analytics dashboard</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-content">CONTENT &amp; SEO</span><span class="scroll-card-time">8h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> RIVALTECH</div><div class="scroll-card-text">Ranking for 14 new high-intent keywords in "enterprise analytics"</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">4h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> CLOUDSTACK</div><div class="scroll-card-text">CEO YouTube demo hit 12K views &mdash; sales team sharing in prospect outreach</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">6h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> ACME CORP</div><div class="scroll-card-text">Twitter/X thread from ex-customer goes viral &mdash; 2.1K engagements on migration pain</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-funding">FUNDING</span><span class="scroll-card-time">1d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> NEXGEN SAAS</div><div class="scroll-card-text">Crunchbase: $30M Series B closed &mdash; APAC expansion confirmed</div></div>
         </div>
     </section>
     <section class="scroll-feed" style="padding-top: 0;">
@@ -1643,6 +1678,9 @@ footer {
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-pricing">PRICING</span><span class="scroll-card-time">5d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> NEXGEN SAAS</div><div class="scroll-card-text">Annual billing discount increased from 20% to 30%</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-product">PRODUCT</span><span class="scroll-card-time">6d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> ACME CORP</div><div class="scroll-card-text">Mobile app v3.2 &mdash; added offline mode and push notifications</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">3d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> NEXGEN SAAS</div><div class="scroll-card-text">Capterra rating jumped to 4.7 &mdash; 23 new 5-star reviews in 2 weeks</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-hiring">HIRING</span><span class="scroll-card-time">2d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> RIVALTECH</div><div class="scroll-card-text">12 ML engineer roles posted on LinkedIn &mdash; AI product push in 6 months</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">5h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> CLOUDSTACK</div><div class="scroll-card-text">Discord community backlash &mdash; 40+ threads on broken API after latest update</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">12h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> RIVALTECH</div><div class="scroll-card-text">TrustRadius: 3 new reviews mention switching costs &mdash; "locked in, not happy"</div></div>
             <!-- duplicate set for seamless loop -->
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-product">PRODUCT</span><span class="scroll-card-time">5h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> RIVALTECH</div><div class="scroll-card-text">Launched AI-powered analytics dashboard</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">1d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> ACME CORP</div><div class="scroll-card-text">G2 sentiment dropped 12% &mdash; "support response times" cited 8x</div></div>
@@ -1650,6 +1688,9 @@ footer {
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-pricing">PRICING</span><span class="scroll-card-time">5d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> NEXGEN SAAS</div><div class="scroll-card-text">Annual billing discount increased from 20% to 30%</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-product">PRODUCT</span><span class="scroll-card-time">6d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-neutral">&#8594;</span> ACME CORP</div><div class="scroll-card-text">Mobile app v3.2 &mdash; added offline mode and push notifications</div></div>
             <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">3d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> NEXGEN SAAS</div><div class="scroll-card-text">Capterra rating jumped to 4.7 &mdash; 23 new 5-star reviews in 2 weeks</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-hiring">HIRING</span><span class="scroll-card-time">2d ago</span></div><div class="scroll-card-source"><span class="arrow arrow-up">&#8593;</span> RIVALTECH</div><div class="scroll-card-text">12 ML engineer roles posted on LinkedIn &mdash; AI product push in 6 months</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-social">SOCIAL</span><span class="scroll-card-time">5h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> CLOUDSTACK</div><div class="scroll-card-text">Discord community backlash &mdash; 40+ threads on broken API after latest update</div></div>
+            <div class="scroll-card"><div class="scroll-card-top"><span class="scroll-card-tag tag-voc">VOC</span><span class="scroll-card-time">12h ago</span></div><div class="scroll-card-source"><span class="arrow arrow-down">&#8595;</span> RIVALTECH</div><div class="scroll-card-text">TrustRadius: 3 new reviews mention switching costs &mdash; "locked in, not happy"</div></div>
         </div>
     </section>
 
@@ -1817,151 +1858,16 @@ footer {
             <p class="section-label">Built for every revenue team</p>
             <h2 class="section-title">Right intel. Right team. Right moment.</h2>
             <div class="teams-tabs" data-reveal>
-                <button class="teams-tab active" data-team="0">Sales</button>
-                <button class="teams-tab" data-team="1">Product Marketing</button>
-                <button class="teams-tab" data-team="2">Product</button>
-                <button class="teams-tab" data-team="3">Content &amp; SEO</button>
-                <button class="teams-tab" data-team="4">CXO</button>
-                <button class="teams-tab" data-team="5">Founders</button>
+                <button class="teams-tab active" data-team="0">Founders</button>
+                <button class="teams-tab" data-team="1">CXO</button>
+                <button class="teams-tab" data-team="2">Sales</button>
+                <button class="teams-tab" data-team="3">Product Marketing</button>
+                <button class="teams-tab" data-team="4">Product</button>
+                <button class="teams-tab" data-team="5">Content &amp; SEO</button>
             </div>
             <div class="teams-panels">
-                <!-- Sales -->
-                <div class="teams-panel active" data-team-panel="0">
-                    <div class="teams-content-card">
-                        <div class="teams-left">
-                            <h3>Walk into every call <span>armed.</span></h3>
-                            <ul class="teams-checks">
-                                <li>Overlapping accounts flagged when competitors win deals</li>
-                                <li>Counter-positioning and talk tracks auto-updated</li>
-                                <li>At-risk renewals surfaced before the next call</li>
-                            </ul>
-                        </div>
-                        <div class="teams-scenarios">
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534A1.914 1.914 0 0 0 3.89 20h16.218a1.914 1.914 0 0 0 1.636-2.875L13.637 3.591a1.914 1.914 0 0 0-3.274 0z"/></svg></div>
-                                <div class="teams-scenario-text">Competitor wins a deal in your territory</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-                                <div class="teams-scenario-text">Pricing page changes mid-quarter</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                                <div class="teams-scenario-text">New VP joins a target account</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Marketing -->
-                <div class="teams-panel" data-team-panel="1">
-                    <div class="teams-content-card">
-                        <div class="teams-left">
-                            <h3>Own the narrative <span>before they rewrite it.</span></h3>
-                            <ul class="teams-checks">
-                                <li>Comparison pages auto-refresh when competitors change</li>
-                                <li>Claim audits flag unsupported competitor statements</li>
-                                <li>Messaging shifts detected and counter-positioned same day</li>
-                            </ul>
-                        </div>
-                        <div class="teams-scenarios">
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-                                <div class="teams-scenario-text">Competitor publishes a "vs You" page</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-                                <div class="teams-scenario-text">Competitor repositions their messaging</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                                <div class="teams-scenario-text">Comparison pages go stale within weeks</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product -->
-                <div class="teams-panel" data-team-panel="2">
-                    <div class="teams-content-card">
-                        <div class="teams-left">
-                            <h3>See competitor roadmaps <span>before they ship.</span></h3>
-                            <ul class="teams-checks">
-                                <li>Hiring patterns reveal product direction 6 months ahead</li>
-                                <li>Feature launches logged with roadmap implications</li>
-                                <li>Community sentiment shows where competitors are weak</li>
-                            </ul>
-                        </div>
-                        <div class="teams-scenarios">
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg></div>
-                                <div class="teams-scenario-text">Competitor hiring reveals roadmap bets</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                                <div class="teams-scenario-text">Feature launch from a changelog or blog</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M4 22h0a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h0"/></svg></div>
-                                <div class="teams-scenario-text">Users complain about a competitor's UX</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Content & SEO -->
-                <div class="teams-panel" data-team-panel="3">
-                    <div class="teams-content-card">
-                        <div class="teams-left">
-                            <h3>Win in search — <span>traditional and AI.</span></h3>
-                            <ul class="teams-checks">
-                                <li>SEO ranking shifts detected with content gap analysis</li>
-                                <li>AEO tracks ChatGPT, Perplexity, and Google AI Overviews</li>
-                                <li>Ad spend and keyword targeting changes monitored</li>
-                            </ul>
-                        </div>
-                        <div class="teams-scenarios">
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                                <div class="teams-scenario-text">Competitor outranks you on a key term</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                                <div class="teams-scenario-text">AI search engines recommend a competitor</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
-                                <div class="teams-scenario-text">Competitor changes ad spend or targeting</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- CXO -->
-                <div class="teams-panel" data-team-panel="4">
-                    <div class="teams-content-card">
-                        <div class="teams-left">
-                            <h3>Strategic clarity, <span>delivered weekly.</span></h3>
-                            <ul class="teams-checks">
-                                <li>Pricing trends, hiring waves, and messaging shifts synthesized</li>
-                                <li>Board-ready competitive landscape on demand</li>
-                                <li>Quarterly patterns visible across the Strategy Timeline</li>
-                            </ul>
-                        </div>
-                        <div class="teams-scenarios">
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                                <div class="teams-scenario-text">Weekly competitive landscape brief</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                                <div class="teams-scenario-text">Board deck needs competitive context</div>
-                            </div>
-                            <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                                <div class="teams-scenario-text">Spotting patterns across quarters</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Founders -->
-                <div class="teams-panel" data-team-panel="5">
+                <div class="teams-panel active" data-team-panel="0">
                     <div class="teams-content-card">
                         <div class="teams-left">
                             <h3>Know exactly <span>where you stand.</span></h3>
@@ -1973,16 +1879,151 @@ footer {
                         </div>
                         <div class="teams-scenarios">
                             <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                                <div class="teams-scenario-icon icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                                 <div class="teams-scenario-text">New competitor enters your category</div>
                             </div>
                             <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                                <div class="teams-scenario-icon icon-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                                 <div class="teams-scenario-text">Investor asks about your competition</div>
                             </div>
                             <div class="teams-scenario">
-                                <div class="teams-scenario-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                                <div class="teams-scenario-icon icon-purple"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
                                 <div class="teams-scenario-text">Competitor raises funding or pivots</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CXO -->
+                <div class="teams-panel" data-team-panel="1">
+                    <div class="teams-content-card">
+                        <div class="teams-left">
+                            <h3>Strategic clarity, <span>delivered weekly.</span></h3>
+                            <ul class="teams-checks">
+                                <li>Pricing trends, hiring waves, and messaging shifts synthesized</li>
+                                <li>Board-ready competitive landscape on demand</li>
+                                <li>Quarterly patterns visible across the Strategy Timeline</li>
+                            </ul>
+                        </div>
+                        <div class="teams-scenarios">
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-indigo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                                <div class="teams-scenario-text">Weekly competitive landscape brief</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                                <div class="teams-scenario-text">Board deck needs competitive context</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                                <div class="teams-scenario-text">Spotting patterns across quarters</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sales -->
+                <div class="teams-panel" data-team-panel="2">
+                    <div class="teams-content-card">
+                        <div class="teams-left">
+                            <h3>Walk into every call <span>armed.</span></h3>
+                            <ul class="teams-checks">
+                                <li>Overlapping accounts flagged when competitors win deals</li>
+                                <li>Counter-positioning and talk tracks auto-updated</li>
+                                <li>At-risk renewals surfaced before the next call</li>
+                            </ul>
+                        </div>
+                        <div class="teams-scenarios">
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534A1.914 1.914 0 0 0 3.89 20h16.218a1.914 1.914 0 0 0 1.636-2.875L13.637 3.591a1.914 1.914 0 0 0-3.274 0z"/></svg></div>
+                                <div class="teams-scenario-text">Competitor wins a deal in your territory</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                                <div class="teams-scenario-text">Pricing page changes mid-quarter</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                                <div class="teams-scenario-text">New VP joins a target account</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Marketing -->
+                <div class="teams-panel" data-team-panel="3">
+                    <div class="teams-content-card">
+                        <div class="teams-left">
+                            <h3>Own the narrative <span>before they rewrite it.</span></h3>
+                            <ul class="teams-checks">
+                                <li>Comparison pages auto-refresh when competitors change</li>
+                                <li>Claim audits flag unsupported competitor statements</li>
+                                <li>Messaging shifts detected and counter-positioned same day</li>
+                            </ul>
+                        </div>
+                        <div class="teams-scenarios">
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-purple"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                                <div class="teams-scenario-text">Competitor publishes a "vs You" page</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-indigo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                                <div class="teams-scenario-text">Competitor repositions their messaging</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                                <div class="teams-scenario-text">Comparison pages go stale within weeks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product -->
+                <div class="teams-panel" data-team-panel="4">
+                    <div class="teams-content-card">
+                        <div class="teams-left">
+                            <h3>See competitor roadmaps <span>before they ship.</span></h3>
+                            <ul class="teams-checks">
+                                <li>Hiring patterns reveal product direction 6 months ahead</li>
+                                <li>Feature launches logged with roadmap implications</li>
+                                <li>Community sentiment shows where competitors are weak</li>
+                            </ul>
+                        </div>
+                        <div class="teams-scenarios">
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg></div>
+                                <div class="teams-scenario-text">Competitor hiring reveals roadmap bets</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                                <div class="teams-scenario-text">Feature launch from a changelog or blog</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M4 22h0a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h0"/></svg></div>
+                                <div class="teams-scenario-text">Users complain about a competitor's UX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content & SEO -->
+                <div class="teams-panel" data-team-panel="5">
+                    <div class="teams-content-card">
+                        <div class="teams-left">
+                            <h3>Win in search — <span>traditional and AI.</span></h3>
+                            <ul class="teams-checks">
+                                <li>SEO ranking shifts detected with content gap analysis</li>
+                                <li>AEO tracks ChatGPT, Perplexity, and Google AI Overviews</li>
+                                <li>Ad spend and keyword targeting changes monitored</li>
+                            </ul>
+                        </div>
+                        <div class="teams-scenarios">
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                                <div class="teams-scenario-text">Competitor outranks you on a key term</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-purple"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                                <div class="teams-scenario-text">AI search engines recommend a competitor</div>
+                            </div>
+                            <div class="teams-scenario">
+                                <div class="teams-scenario-icon icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+                                <div class="teams-scenario-text">Competitor changes ad spend or targeting</div>
                             </div>
                         </div>
                     </div>
@@ -2090,7 +2131,7 @@ footer {
         <div class="footer-inner">
             <div class="footer-left">
                 <a href="#" class="footer-logo">
-                    <img src="assets/kompete_logo_light.svg" alt="Kompete.ai" class="logo-img-footer">
+                    <img src="assets/kompete_logo_darkpurple.svg" alt="Kompete.ai" class="logo-img-footer">
                 </a>
                 <p>Competitive Intelligence, Automated</p>
             </div>
@@ -2209,13 +2250,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'nexora.com/compare',
             sourceDetails: 'Website \u00b7 Google Index \u00b7 LinkedIn \u00b7 G2',
-            found: 'Page ranks for "Acmeflow alternative" queries. Claims 40% faster onboarding and lower TCO. Includes 3 customer testimonials \u2014 2 from your target vertical.',
-            matters: 'This page appears when prospects Google your brand. Their TCO claim contradicts their own G2 reviews. The vertical testimonials target the exact segment your marketing is focused on.',
+            found: 'Claims 40% faster onboarding and lower TCO. 2 of 3 testimonials target your vertical.',
+            matters: 'Appears when prospects Google your brand. TCO claim contradicts their own G2 reviews.',
             actions: [
-                'Counter-comparison draft \u2192 sent to marketing via Slack',
-                'Claim audit (2 of 3 unsupported) \u2192 emailed to PMM',
-                'SEO brief for same keywords \u2192 sent to content team via Slack',
-                'Battle card updated \u2192 pushed to sales via Slack'
+                'Counter-comparison draft \u2192 marketing via Slack',
+                'Claim audit (2 of 3 unsupported) \u2192 PMM',
+                'Battle card updated \u2192 sales via Slack'
             ]
         },
         {
@@ -2226,13 +2266,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'stratix.com/pricing',
             sourceDetails: 'Website \u00b7 Wayback Machine \u00b7 G2 Pricing \u00b7 LinkedIn',
-            found: 'Enterprise plan dropped from $120/seat to $89/seat. New "Startup" tier at $29/mo undercuts your entry plan. Pricing page updated with a "vs Acmeflow" comparison table.',
-            matters: 'Your sales team is quoting against their old pricing in active deals. The new Startup tier creates a low-friction entry point for prospects evaluating alternatives.',
+            found: 'Enterprise dropped from $120 to $89/seat. New Startup tier at $29/mo undercuts your entry plan.',
+            matters: 'Sales is quoting against old pricing in active deals. New tier creates a low-friction entry for prospects.',
             actions: [
-                'Battle card pricing table updated \u2192 pushed to sales via Slack',
-                'Counter-positioning talk track \u2192 emailed to sales leadership',
-                'Inaccurate claims flagged \u2192 sent to marketing via Slack',
-                'Pricing alert \u2192 emailed to PMM and VP Sales'
+                'Pricing table updated \u2192 sales via Slack',
+                'Counter-positioning talk track \u2192 sales leadership',
+                'Pricing alert \u2192 PMM and VP Sales'
             ]
         },
         {
@@ -2243,13 +2282,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'vantara.com/blog + G2 reviews',
             sourceDetails: 'Blog \u00b7 G2 \u00b7 Product Hunt \u00b7 LinkedIn',
-            found: 'Blog post details AI-powered dashboards and predictive analytics. 6 G2 reviews in the last 2 weeks mention the feature positively. Product Hunt launch has 340+ upvotes.',
-            matters: 'This feature is on your H2 roadmap. Early reviews suggest strong reception. Prospects may start asking about your AI analytics timeline during evaluations.',
+            found: 'AI dashboards and predictive analytics launched. 6 positive G2 reviews. 340+ Product Hunt upvotes.',
+            matters: 'On your H2 roadmap. Prospects will ask about your AI analytics timeline.',
             actions: [
-                'Feature gap brief \u2192 sent to product lead via Slack',
-                'Competitive FAQ updated \u2192 pushed to sales via Slack',
-                'Talk track: "Our analytics approach" \u2192 emailed to AEs',
-                'G2 sentiment analysis \u2192 sent to PMM via email'
+                'Feature gap brief \u2192 product lead via Slack',
+                'Competitive FAQ updated \u2192 sales via Slack',
+                'Talk track: "Our approach" \u2192 AEs'
             ]
         },
         {
@@ -2260,13 +2298,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'nexora.com (homepage, about, pricing)',
             sourceDetails: 'Website \u00b7 Wayback Machine \u00b7 LinkedIn \u00b7 Google Ads',
-            found: 'Homepage headline changed to "Enterprise-grade platform for the modern org." Navigation added "Enterprise" section. New Fortune 500 case studies. Google Ads now bidding on enterprise keywords.',
-            matters: 'Nexora is moving upmarket into your primary segment. Their new messaging directly competes with your enterprise positioning. CPCs for enterprise keywords will likely increase.',
+            found: 'New "Enterprise" nav section, Fortune 500 case studies, now bidding on enterprise keywords.',
+            matters: 'Moving upmarket into your segment. Enterprise keyword CPCs will increase.',
             actions: [
-                'Messaging gap analysis \u2192 emailed to marketing lead',
-                'Differentiation brief (5 areas) \u2192 sent to PMM via Slack',
-                'Google Ads overlap report \u2192 emailed to growth team',
-                'Battle card updated \u2192 pushed to sales via Slack'
+                'Messaging gap analysis \u2192 marketing lead',
+                'Differentiation brief \u2192 PMM via Slack',
+                'Battle card updated \u2192 sales via Slack'
             ]
         },
         {
@@ -2277,13 +2314,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'G2 \u00b7 Capterra \u00b7 TrustRadius',
             sourceDetails: 'G2 Reviews \u00b7 Capterra \u00b7 Reddit \u00b7 Twitter',
-            found: 'G2 score fell 0.3 points in 30 days. "Poor onboarding" and "steep learning curve" appear in 6 of last 10 reviews. Two reviewers explicitly mention evaluating alternatives.',
-            matters: 'This is a displacement opportunity. Your onboarding time is 2 weeks vs their 6+ weeks \u2014 a concrete advantage to lead with in outbound.',
+            found: 'Score fell 0.3 in 30 days. "Poor onboarding" in 6 of 10 reviews. Two reviewers evaluating alternatives.',
+            matters: 'Displacement opportunity. Your onboarding: 2 weeks vs their 6+.',
             actions: [
-                'Displacement talking points \u2192 pushed to sales via Slack',
-                'Outbound sequence draft \u2192 emailed to SDR lead',
-                'Win story template \u2192 sent to marketing via Slack',
-                'Review trend report \u2192 emailed to CS lead'
+                'Displacement talking points \u2192 sales via Slack',
+                'Outbound sequence draft \u2192 SDR lead',
+                'Review trend report \u2192 CS lead'
             ]
         },
         {
@@ -2294,13 +2330,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'LinkedIn Jobs \u00b7 vantara.com/careers',
             sourceDetails: 'LinkedIn \u00b7 Careers Page \u00b7 Glassdoor \u00b7 Indeed',
-            found: '8 ML engineer roles posted in 10 days. Job descriptions reference "next-gen analytics platform." Hiring across SF, London, and Bangalore suggests a global product launch.',
-            matters: 'This hiring pattern signals a major AI initiative landing in 4-6 months. Your product team should factor this into H2 roadmap planning.',
+            found: '8 ML roles in 10 days across SF, London, Bangalore. JDs reference "next-gen analytics."',
+            matters: 'Signals major AI launch in 4\u20136 months. Factor into H2 roadmap.',
             actions: [
-                'Roadmap implication brief \u2192 emailed to product lead',
-                'Hiring trend timeline \u2192 sent to strategy via Slack',
-                'Threat assessment \u2192 emailed to leadership',
-                'Feature parity analysis \u2192 sent to product via Slack'
+                'Roadmap brief \u2192 product lead',
+                'Threat assessment \u2192 leadership',
+                'Feature parity analysis \u2192 product via Slack'
             ]
         },
         {
@@ -2311,13 +2346,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'Crunchbase \u00b7 TechCrunch \u00b7 LinkedIn',
             sourceDetails: 'Crunchbase \u00b7 Press Releases \u00b7 LinkedIn \u00b7 SEC Filings',
-            found: '$45M Series C at ~$380M valuation. Press release mentions "expanding into Asia-Pacific." Three new VP-level hires in the last month (VP Sales, VP APAC, VP Enterprise).',
-            matters: 'Arcline now has runway to aggressively compete on enterprise deals and expand into APAC \u2014 a region where you have early traction.',
+            found: '$45M at ~$380M valuation. APAC expansion announced. 3 VP-level hires in 30 days.',
+            matters: 'Runway to compete on enterprise and expand into APAC where you have early traction.',
             actions: [
-                'Strategic threat assessment \u2192 emailed to CEO and board',
-                'APAC competitive brief \u2192 sent to regional lead via Slack',
-                'Enterprise defense playbook \u2192 pushed to sales via Slack',
-                'Board-ready summary \u2192 emailed to leadership'
+                'Threat assessment \u2192 CEO and board',
+                'APAC brief \u2192 regional lead via Slack',
+                'Enterprise defense playbook \u2192 sales via Slack'
             ]
         },
         {
@@ -2328,13 +2362,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'LinkedIn \u00b7 Twitter \u00b7 YouTube',
             sourceDetails: 'LinkedIn \u00b7 Twitter \u00b7 YouTube \u00b7 Podcasts',
-            found: 'CEO post got 1,400 likes and 89 comments. Demo video has 3,200 views. Three industry analysts commented positively. Their sales team is sharing it targeting your customers.',
-            matters: 'This is generating market awareness before your prospects see it in a demo. Their sales reps are actively using the post in outreach to your accounts.',
+            found: '1,400 likes, 89 comments, 3,200 video views. Sales team sharing it targeting your accounts.',
+            matters: 'Generating awareness before prospects see it in demos.',
             actions: [
-                'Feature summary \u2192 pushed to all AEs via Slack',
-                'Counter-narrative talking points \u2192 emailed to sales',
-                'Social listening alerts \u2192 configured for prospect mentions',
-                'Response piece brief \u2192 sent to content team via Slack'
+                'Feature summary \u2192 all AEs via Slack',
+                'Counter-narrative points \u2192 sales',
+                'Response brief \u2192 content team via Slack'
             ]
         },
         {
@@ -2345,13 +2378,12 @@ footer {
             sourceLabel: 'Sources Monitored',
             sourceStrong: 'Google Search \u00b7 SEMrush \u00b7 Ahrefs',
             sourceDetails: 'Google Rankings \u00b7 SEMrush \u00b7 Backlinks \u00b7 Content',
-            found: 'Nexora moved from #7 to #2 for "competitive intelligence tool" (2,400 monthly searches). They published 4 long-form articles targeting this cluster. Your ranking dropped from #3 to #5.',
-            matters: 'This keyword drives ~180 organic visits/month to top 3. Losing this position means fewer inbound demos from high-intent prospects.',
+            found: 'Jumped from #7 to #2 with 4 new long-form articles. You dropped from #3 to #5.',
+            matters: 'Keyword drives ~180 organic visits/month to top 3. Fewer inbound demos.',
             actions: [
-                'Counter-SEO plan \u2192 sent to content lead via Slack',
-                'Competitor article gap analysis \u2192 emailed to content team',
-                'Backlink opportunity list (8 domains) \u2192 sent via Slack',
-                'Content optimization checklist \u2192 emailed to SEO manager'
+                'Counter-SEO plan \u2192 content lead via Slack',
+                'Article gap analysis \u2192 content team',
+                'Backlink opportunities \u2192 SEO manager'
             ]
         }
     ];

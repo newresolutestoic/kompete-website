@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompete.ai — The Cost of Flying Blind</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist/dist/fonts/geist-sans/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #09090b;
+            color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .infographic {
+            max-width: 1000px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #818cf8;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            padding: 0.3rem 0.875rem;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 6px;
+        }
+        .title {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .card {
+            background: #111113;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 16px 16px 0 0;
+        }
+        .card:nth-child(1)::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+        .card:nth-child(2)::before { background: linear-gradient(90deg, #eab308, #facc15); }
+        .card:nth-child(3)::before { background: linear-gradient(90deg, #6366f1, #818cf8); }
+        .card:nth-child(4)::before { background: linear-gradient(90deg, #f97316, #fb923c); }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+        .card:nth-child(1) .card-icon { background: rgba(239, 68, 68, 0.12); color: #f87171; }
+        .card:nth-child(2) .card-icon { background: rgba(234, 179, 8, 0.12); color: #facc15; }
+        .card:nth-child(3) .card-icon { background: rgba(99, 102, 241, 0.12); color: #818cf8; }
+        .card:nth-child(4) .card-icon { background: rgba(249, 115, 22, 0.12); color: #fb923c; }
+
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+        }
+        .card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+        }
+        .card li {
+            font-size: 0.9375rem;
+            color: #a1a1aa;
+            line-height: 1.5;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+        .card:nth-child(1) li::before { background: #ef4444; }
+        .card:nth-child(2) li::before { background: #eab308; }
+        .card:nth-child(3) li::before { background: #6366f1; }
+        .card:nth-child(4) li::before { background: #f97316; }
+
+        .footer-bar {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 10px;
+        }
+        .footer-bar p {
+            font-size: 0.9375rem;
+            color: #a1a1aa;
+        }
+        .footer-bar strong {
+            color: #818cf8;
+        }
+
+        @media (max-width: 640px) {
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <div class="header">
+            <div class="label">The cost of flying blind</div>
+            <h1 class="title">Your competitors changed pricing, shipped features, and hired your talent. Nobody on your team saw it.</h1>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                </div>
+                <h3>Sales walks in blind. Marketing counters last quarter's messaging.</h3>
+                <ul>
+                    <li>A competitor changed pricing last week — your reps don't know</li>
+                    <li>Their messaging shifted — your landing pages still counter the old positioning</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                </div>
+                <h3>Battle cards go stale the day you publish them.</h3>
+                <ul>
+                    <li>Battle cards are the #1 MQL driver in B2B SaaS</li>
+                    <li>Yours take 3-4 days to build and go stale within a week</li>
+                    <li>Sales stops trusting them</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Product builds without context. CS gets blindsided.</h3>
+                <ul>
+                    <li>Product doesn't know what competitors shipped last quarter</li>
+                    <li>CS can't counter competitive displacement they didn't see coming</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Pricing decisions based on guesswork and gossip.</h3>
+                <ul>
+                    <li>Enterprise competitors never publish real pricing</li>
+                    <li>You hear a number from a prospect and assume it's true</li>
+                    <li>A competitor drops pricing 20% — your reps find out mid-deal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <p><strong>Kompete.ai</strong> — Every team armed with competitive intel, every day, automatically.</p>
+        </div>
+    </div>
+</body>
+</html>
