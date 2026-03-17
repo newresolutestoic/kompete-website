@@ -383,7 +383,7 @@ ul { list-style: none; }
     min-width: 4.5rem;
     text-align: center;
 }
-.tag-red { background: rgba(220, 38, 38, 0.08); color: var(--red); }
+.tag-red { background: rgba(251, 146, 60, 0.08); color: #fb923c; }
 .tag-amber { background: rgba(202, 138, 4, 0.08); color: var(--amber); }
 .tag-green { background: rgba(22, 163, 74, 0.08); color: var(--green); }
 .tag-blue { background: rgba(99, 102, 241,0.08); color: var(--accent-text); }
@@ -436,7 +436,7 @@ ul { list-style: none; }
     display: inline-block;
     margin-bottom: 0.5rem;
 }
-.detail-type.type-red { color: var(--red); background: rgba(220, 38, 38, 0.08); }
+.detail-type.type-red { color: #fb923c; background: rgba(251, 146, 60, 0.08); }
 .detail-type.type-amber { color: var(--amber); background: rgba(202, 138, 4, 0.08); }
 .detail-type.type-green { color: var(--green); background: rgba(22, 163, 74, 0.08); }
 .detail-type.type-blue { color: var(--accent-text); background: rgba(99, 102, 241,0.08); }
@@ -632,11 +632,16 @@ ul { list-style: none; }
 }
 
 .scroll-track.left {
-    animation: scrollLeft 40s linear infinite;
+    animation: scrollLeft 50s linear infinite;
 }
 
 .scroll-track.right {
-    animation: scrollRight 40s linear infinite;
+    animation: scrollRight 50s linear infinite;
+}
+
+/* Pause both tracks when either feed is hovered */
+.scroll-feed.is-paused .scroll-track {
+    animation-play-state: paused;
 }
 
 @keyframes scrollLeft {
@@ -658,6 +663,23 @@ ul { list-style: none; }
     border-radius: 10px;
     color: #fafafa;
     box-shadow: 0 1px 3px rgba(255, 255, 255, 0.03), 0 4px 12px rgba(255, 255, 255, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: default;
+}
+
+/* Dim siblings when any card is hovered */
+.scroll-feed:hover .scroll-card {
+    opacity: 0.35;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.scroll-feed .scroll-card:hover {
+    opacity: 1;
+    transform: scale(1.04);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.18), 0 1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    position: relative;
 }
 
 .scroll-card-top {
@@ -868,7 +890,7 @@ ul { list-style: none; }
     color: var(--text-secondary);
 }
 
-.why-signal.red .why-signal-icon { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
+.why-signal.red .why-signal-icon { background: rgba(251, 146, 60, 0.08); color: #fb923c; }
 .why-signal.amber .why-signal-icon { background: rgba(245, 158, 11, 0.08); color: #f59e0b; }
 .why-signal.blue .why-signal-icon { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
 .why-signal.purple .why-signal-icon { background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
@@ -1089,7 +1111,7 @@ ul { list-style: none; }
     justify-content: center;
     flex-shrink: 0;
 }
-.teams-scenario-icon.icon-red { background: rgba(239, 68, 68, 0.08); color: var(--red); }
+.teams-scenario-icon.icon-red { background: rgba(251, 146, 60, 0.08); color: #fb923c; }
 .teams-scenario-icon.icon-amber { background: rgba(245, 158, 11, 0.08); color: var(--amber); }
 .teams-scenario-icon.icon-green { background: rgba(34, 197, 94, 0.08); color: var(--green); }
 .teams-scenario-icon.icon-blue { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
@@ -1119,12 +1141,13 @@ ul { list-style: none; }
     padding: 6rem 0;
 }
 
+/* Trigger banner */
 .outcomes-trigger {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     max-width: var(--max-w);
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 3rem;
     padding: 1.125rem 1.5rem;
     background: rgba(202, 138, 4, 0.08);
     border: 1px solid rgba(202, 138, 4, 0.2);
@@ -1133,154 +1156,206 @@ ul { list-style: none; }
     color: var(--text-secondary);
     line-height: 1.5;
 }
+.outcomes-trigger strong { color: #eab308; }
 
-.outcomes-trigger strong {
-    color: #eab308;
-}
-
-.outcomes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+/* Column labels */
+.outcomes-labels {
+    display: flex;
+    justify-content: space-between;
     max-width: var(--max-w);
-    margin: 0 auto;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
 }
-
-/* Headers */
-.outcomes-header {
+.outcomes-label {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 1rem;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: -0.01em;
 }
+.outcomes-label.bad { color: var(--red); }
+.outcomes-label.good { color: var(--accent-text, var(--accent)); }
 
-.outcomes-header-bad {
-    background: rgba(239, 68, 68, 0.08);
-    color: var(--red);
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    border-radius: 16px 0 0 0;
-    border-right: none;
+/* Timeline wrapper */
+.outcomes-timeline {
+    position: relative;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-.outcomes-header-good {
-    background: rgba(34, 197, 94, 0.08);
-    color: var(--green);
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    border-radius: 0 16px 0 0;
-    border-left: none;
+/* Central vertical line — subtle single color */
+.outcomes-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(-50%);
 }
 
-/* Step cells — flat grid ensures row alignment */
-.outcomes-cell {
+/* Each timeline row */
+.tl-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: tl-fade-in 0.5s ease forwards;
+}
+.tl-row:nth-child(1) { animation-delay: 0.1s; }
+.tl-row:nth-child(2) { animation-delay: 0.25s; }
+.tl-row:nth-child(3) { animation-delay: 0.4s; }
+.tl-row:nth-child(4) { animation-delay: 0.55s; }
+.tl-row:nth-child(5) { animation-delay: 0.7s; }
+
+@keyframes tl-fade-in {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Center node */
+.tl-node {
     display: flex;
-    gap: 0.875rem;
-    padding: 1.125rem 1.25rem;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg-card);
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    padding: 0 1rem;
 }
-
-.outcomes-cell-left {
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-}
-
-.outcomes-cell-right {
-    border-right: 1px solid var(--border);
-}
-
-.outcomes-cell-marker {
-    width: 28px;
-    height: 28px;
+.tl-node-dot {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted, #64748b);
+}
+.tl-node-time {
+    font-size: 0.6875rem;
     font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
+    color: var(--text-muted, #64748b);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.375rem;
+    white-space: nowrap;
 }
 
-.outcomes-cell-marker.bad {
-    background: rgba(239, 68, 68, 0.1);
-    color: var(--red);
-}
-
-.outcomes-cell-marker.good {
-    background: rgba(34, 197, 94, 0.1);
-    color: var(--green);
-}
-
-.outcomes-cell-body {
-    flex: 1;
-    min-width: 0;
-}
-
-.outcomes-cell-time {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-}
-
-.outcomes-cell-time.bad { color: var(--red); }
-.outcomes-cell-time.good { color: var(--green); }
-
-.outcomes-cell-body p {
+/* Cards on each side */
+.tl-card {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
     font-size: 0.875rem;
-    color: var(--text-secondary);
     line-height: 1.55;
+    color: var(--text-secondary);
+    position: relative;
 }
 
-.outcomes-cell-body em {
-    color: var(--text-primary);
-    font-style: italic;
+/* Bad (left) card */
+.tl-card.bad {
+    background: rgba(239, 68, 68, 0.04);
+    border: 1px solid var(--border);
+    border-left: 3px solid rgba(239, 68, 68, 0.3);
+    text-align: right;
+    margin-right: 0.5rem;
 }
 
-.outcomes-cell-body strong {
-    color: var(--text-primary);
+/* Good (right) card */
+.tl-card.good {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-right: 3px solid rgba(99, 102, 241, 0.35);
+    text-align: left;
+    margin-left: 0.5rem;
 }
 
-/* Footer results */
-.outcomes-footer {
+.tl-card em { color: var(--text-primary); font-style: italic; }
+.tl-card strong { color: var(--text-primary); }
+
+/* Outcome summary cards */
+.outcomes-result {
+    display: flex;
+    gap: 1.5rem;
+    max-width: var(--max-w);
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+}
+.outcomes-result-card {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+.outcomes-result-card.bad {
+    border-left: 3px solid rgba(239, 68, 68, 0.3);
+}
+.outcomes-result-card.good {
+    border-right: 3px solid rgba(99, 102, 241, 0.35);
+}
+.outcomes-result-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.625rem;
-    padding: 1rem 1.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-align: center;
+    margin: 0 auto 0.75rem;
 }
-
-.outcomes-footer-bad {
-    background: rgba(239, 68, 68, 0.08);
-    color: var(--red);
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    border-top: 2px solid rgba(239, 68, 68, 0.2);
-    border-radius: 0 0 0 16px;
-    border-right: none;
+.outcomes-result-card.bad .outcomes-result-icon {
+    background: rgba(239, 68, 68, 0.06);
 }
-
-.outcomes-footer-good {
-    background: rgba(34, 197, 94, 0.08);
-    color: var(--green);
-    border: 1px solid rgba(34, 197, 94, 0.2);
-    border-top: 2px solid rgba(34, 197, 94, 0.2);
-    border-radius: 0 0 16px 0;
-    border-left: none;
+.outcomes-result-card.good .outcomes-result-icon {
+    background: rgba(99, 102, 241, 0.08);
+}
+.outcomes-result-stat {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+.outcomes-result-detail {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {
-    .outcomes-grid { grid-template-columns: 1fr; }
-    .outcomes-header-bad { border-radius: 16px 16px 0 0; border-right: 1px solid rgba(239,68,68,0.2); }
-    .outcomes-header-good { border-radius: 16px 16px 0 0; border-left: 1px solid rgba(34,197,94,0.2); margin-top: 2rem; }
-    .outcomes-cell-left { border-right: 1px solid var(--border); }
-    .outcomes-cell-right { border-left: 1px solid var(--border); }
-    .outcomes-footer-bad { border-radius: 0 0 16px 16px; border-right: 1px solid rgba(239,68,68,0.2); }
-    .outcomes-footer-good { border-radius: 0 0 16px 16px; border-left: 1px solid rgba(34,197,94,0.2); }
+    .outcomes-timeline::before { left: 1.5rem; }
+    .tl-row {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.5rem 0;
+    }
+    .tl-node { grid-row: 1 / 3; padding: 0 1rem 0 0; }
+    .tl-card.bad {
+        grid-column: 2;
+        text-align: left;
+        margin-right: 0;
+        margin-left: 0;
+        border-left: 3px solid rgba(239,68,68,0.3);
+    }
+    .tl-card.good {
+        grid-column: 2;
+        margin-left: 0;
+        border-right: none;
+        border-left: 3px solid rgba(99,102,241,0.35);
+    }
+    .outcomes-labels { flex-direction: column; gap: 0.5rem; }
+    .outcomes-result { flex-direction: column; }
 }
 
 
@@ -2210,110 +2285,92 @@ footer {
             <p class="section-label">The cost of a blind spot</p>
             <h2 class="section-title">One missed signal.<br>Two very different quarters.</h2>
 
-            <!-- Trigger event — full width -->
+            <!-- Trigger event -->
             <div class="outcomes-trigger">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <span><strong>Tuesday, 2:14 PM</strong> — Stratix quietly updates their pricing page. Enterprise tier drops from $80K to $64K/year.</span>
+                <span><strong>Tuesday, 3:15 PM</strong> — Two competitors simultaneously drop pricing 25% and launch aggressive "switch &amp; save" campaigns targeting your install base.</span>
             </div>
 
-            <!-- Flat grid — each row is one step across both columns -->
-            <div class="outcomes-grid">
-                <!-- Row: Headers -->
-                <div class="outcomes-header outcomes-header-bad">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <!-- Column labels -->
+            <div class="outcomes-labels">
+                <span class="outcomes-label bad">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                     Without Kompete.ai
-                </div>
-                <div class="outcomes-header outcomes-header-good">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </span>
+                <span class="outcomes-label good">
                     With Kompete.ai
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </span>
+            </div>
+
+            <!-- Timeline infographic -->
+            <div class="outcomes-timeline">
+                <!-- Step 1 -->
+                <div class="tl-row">
+                    <div class="tl-card bad">Pricing changes go unnoticed. Competitors start emailing your customers directly.</div>
+                    <div class="tl-node">
+                        <div class="tl-node-dot">1</div>
+                        <div class="tl-node-time">Tuesday</div>
+                    </div>
+                    <div class="tl-card good">Alert fires: both price drops detected. At-risk accounts scored. CS gets retention playbooks. Sales gets a target list of competitors' vulnerable customers.</div>
                 </div>
 
-                <!-- Row 1: Tuesday -->
-                <div class="outcomes-cell outcomes-cell-left">
-                    <div class="outcomes-cell-marker bad">1</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time bad">Tuesday</div>
-                        <p>No monitoring. Change goes undetected.</p>
+                <!-- Step 2 -->
+                <div class="tl-row">
+                    <div class="tl-card bad">First customer asks for a discount. Rep improvises &mdash; gives away 30% margin.</div>
+                    <div class="tl-node">
+                        <div class="tl-node-dot">2</div>
+                        <div class="tl-node-time">Thursday</div>
                     </div>
-                </div>
-                <div class="outcomes-cell outcomes-cell-right">
-                    <div class="outcomes-cell-marker good">1</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time good">Tuesday</div>
-                        <p>Alert in 3 min. Sales + PMM notified. Battle cards auto-updated.</p>
-                    </div>
+                    <div class="tl-card good">CS locks in top 20 accounts proactively. Sales launches outbound to 40 competitor accounts on shaky contracts &mdash; <em>"cheap price, cheap product"</em> positioning.</div>
                 </div>
 
-                <!-- Row 2: Wednesday -->
-                <div class="outcomes-cell outcomes-cell-left">
-                    <div class="outcomes-cell-marker bad">2</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time bad">Wednesday</div>
-                        <p>AE walks into renewal. Prospect: <em>"Stratix quoted us 20% less."</em> No counter ready.</p>
+                <!-- Step 3 -->
+                <div class="tl-row">
+                    <div class="tl-card bad">3 more customers forward competitor quotes. Reps undercut each other. No consistency.</div>
+                    <div class="tl-node">
+                        <div class="tl-node-dot">3</div>
+                        <div class="tl-node-time">Week 2</div>
                     </div>
-                </div>
-                <div class="outcomes-cell outcomes-cell-right">
-                    <div class="outcomes-cell-marker good">2</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time good">Wednesday</div>
-                        <p>AE armed with counter-positioning, value justification, and retention offer. <strong>Prospect stays.</strong></p>
-                    </div>
+                    <div class="tl-card good">Standardized retention offer protects margin. SDRs book <strong>8 demos</strong> from competitor accounts frustrated by the "discount desperation" signal.</div>
                 </div>
 
-                <!-- Row 3: Thursday -->
-                <div class="outcomes-cell outcomes-cell-left">
-                    <div class="outcomes-cell-marker bad">3</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time bad">Thursday</div>
-                        <p>Marketing publishes comparison with stale pricing. Prospect screenshots it on LinkedIn.</p>
+                <!-- Step 4 -->
+                <div class="tl-row">
+                    <div class="tl-card bad">4 customers churned. 6 on heavy discounts. Revenue down <strong>$340K ARR.</strong></div>
+                    <div class="tl-node">
+                        <div class="tl-node-dot">4</div>
+                        <div class="tl-node-time">Month End</div>
                     </div>
-                </div>
-                <div class="outcomes-cell outcomes-cell-right">
-                    <div class="outcomes-cell-marker good">3</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time good">Thursday</div>
-                        <p>Comparison page already updated. Content publishes <em>"Lower price &#8800; lower TCO."</em> Pipeline intact.</p>
-                    </div>
+                    <div class="tl-card good">1 churned. $290K ARR saved. Plus 4 new deals in pipeline worth <strong>$310K</strong> from competitors' own customers.</div>
                 </div>
 
-                <!-- Row 4: 2 Weeks Later -->
-                <div class="outcomes-cell outcomes-cell-left">
-                    <div class="outcomes-cell-marker bad">4</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time bad">2 Weeks Later</div>
-                        <p>VP Sales on Slack: <em>"Lost 3 deals to Stratix on price. Did anyone know?"</em></p>
+                <!-- Step 5 -->
+                <div class="tl-row">
+                    <div class="tl-card bad">NRR drops to 88%. CFO: <em>"What happened?"</em></div>
+                    <div class="tl-node">
+                        <div class="tl-node-dot">5</div>
+                        <div class="tl-node-time">Quarter End</div>
                     </div>
+                    <div class="tl-card good">NRR at 104%. $310K new pipeline converting. Competitors' pricing move backfired &mdash; <strong>it became your prospecting list.</strong></div>
                 </div>
-                <div class="outcomes-cell outcomes-cell-right">
-                    <div class="outcomes-cell-marker good">4</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time good">2 Weeks Later</div>
-                        <p>Pattern detected: 4th quarterly price drop. Board deck writes itself.</p>
-                    </div>
-                </div>
+            </div>
 
-                <!-- Row 5: Quarter End -->
-                <div class="outcomes-cell outcomes-cell-left" style="border-bottom:none">
-                    <div class="outcomes-cell-marker bad">5</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time bad">Quarter End</div>
-                        <p>Win rate down 8%. 3 churned accounts. Root cause: a pricing change nobody caught.</p>
+            <!-- Final outcome cards -->
+            <div class="outcomes-result">
+                <div class="outcomes-result-card bad">
+                    <div class="outcomes-result-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                     </div>
+                    <div class="outcomes-result-stat">&minus;$340K ARR</div>
+                    <div class="outcomes-result-detail">NRR dropped to 88% &middot; 4 churned &middot; 6 discounted</div>
                 </div>
-                <div class="outcomes-cell outcomes-cell-right" style="border-bottom:none">
-                    <div class="outcomes-cell-marker good">5</div>
-                    <div class="outcomes-cell-body">
-                        <div class="outcomes-cell-time good">Quarter End</div>
-                        <p>Win rate holds. Zero churn. Threat neutralized in 48 hours.</p>
+                <div class="outcomes-result-card good">
+                    <div class="outcomes-result-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
-                </div>
-
-                <!-- Summary -->
-                <div class="outcomes-footer outcomes-footer-bad">
-                    <span>&#8722;8% win rate &middot; 3 lost accounts &middot; credibility hit</span>
-                </div>
-                <div class="outcomes-footer outcomes-footer-good">
-                    <span>Win rate held &middot; zero churn &middot; 48-hour resolution</span>
+                    <div class="outcomes-result-stat">+$310K pipeline</div>
+                    <div class="outcomes-result-detail">$290K saved &middot; NRR 104% &middot; competitors' move backfired</div>
                 </div>
             </div>
         </div>
@@ -2390,6 +2447,17 @@ footer {
    Sticky nav, mobile menu, scroll reveal, form handling */
 
 (function () {
+
+/* ── Scroll-feed: pause BOTH tracks on hover of either feed ── */
+const feeds = document.querySelectorAll('.scroll-feed');
+feeds.forEach(feed => {
+    feed.addEventListener('mouseenter', () => {
+        feeds.forEach(f => f.classList.add('is-paused'));
+    });
+    feed.addEventListener('mouseleave', () => {
+        feeds.forEach(f => f.classList.remove('is-paused'));
+    });
+});
     'use strict';
 
     // --- Sticky navbar ---
