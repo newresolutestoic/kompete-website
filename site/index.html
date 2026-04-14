@@ -1871,6 +1871,162 @@ footer {
     }
 
 }
+
+/* =============================================
+   EARLY ACCESS MODAL
+   ============================================= */
+.eap-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+.eap-modal.open { display: flex; }
+.eap-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 10, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: eapFadeIn 0.2s ease;
+}
+.eap-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 120px rgba(99, 102, 241, 0.08);
+    animation: eapPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+@keyframes eapFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes eapPopIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.eap-close {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    width: 32px; height: 32px;
+    border: none;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-muted);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s;
+    padding: 0;
+}
+.eap-close:hover { background: rgba(255, 255, 255, 0.08); color: var(--text-primary); }
+.eap-body { padding: 2rem 1.75rem 1.5rem; }
+.eap-body h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+.eap-sub {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+.eap-form { display: flex; flex-direction: column; gap: 0.625rem; }
+.eap-form input,
+.eap-form select {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    transition: border-color 0.15s, background 0.15s;
+}
+.eap-form input::placeholder { color: rgba(255, 255, 255, 0.4); }
+.eap-form input:focus,
+.eap-form select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.06);
+}
+.eap-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.25rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+.eap-form select option { background: #111; color: #fafafa; }
+.eap-form select:invalid { color: rgba(255, 255, 255, 0.4); }
+.eap-submit {
+    margin-top: 0.375rem;
+    padding: 0.75rem 1rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+.eap-submit:hover:not(:disabled) { background: var(--accent-light); }
+.eap-submit:active:not(:disabled) { transform: translateY(1px); }
+.eap-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.eap-micro {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.eap-success { text-align: center; padding: 1rem 0 0.25rem; }
+.eap-success-icon {
+    width: 48px; height: 48px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eap-success h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.375rem;
+}
+.eap-success p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.eap-success-email { color: var(--text-primary); font-weight: 500; }
+.eap-error {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #f87171;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .eap-body { padding: 1.5rem 1.25rem 1.25rem; }
+    .eap-body h3 { font-size: 1.25rem; }
+}
     </style>
 </head>
 <body class="bg-floating">
@@ -2822,7 +2978,169 @@ feeds.forEach(feed => {
         });
     });
 
+    // =============================================
+    // EARLY ACCESS MODAL
+    // =============================================
+    // Paste the Google Apps Script Web App URL here (replace the placeholder).
+    // See setup instructions the team shared alongside this file.
+    var EAP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVvGM2XKNa5241NrhxsVnpqoxbDxjIVdf0deiAhaUmE-BkT6ogIhW77YsOEquqgAtB/exec';
+
+    var eapModal = document.getElementById('eap-modal');
+    var eapForm = document.getElementById('eap-form');
+    var eapSuccess = eapModal ? eapModal.querySelector('.eap-success') : null;
+    var eapSuccessEmail = eapModal ? eapModal.querySelector('.eap-success-email') : null;
+    var eapError = eapModal ? eapModal.querySelector('.eap-error') : null;
+
+    function openEap(prefillEmail) {
+        if (!eapModal) return;
+        eapModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (eapForm) {
+            eapForm.hidden = false;
+            eapForm.reset();
+        }
+        if (eapSuccess) eapSuccess.hidden = true;
+        if (eapError) eapError.textContent = '';
+        if (prefillEmail && eapForm) {
+            var emailField = eapForm.querySelector('[name="email"]');
+            if (emailField) emailField.value = prefillEmail;
+        }
+        // Focus first empty field
+        setTimeout(function () {
+            if (!eapForm) return;
+            var fields = eapForm.querySelectorAll('input, select');
+            for (var i = 0; i < fields.length; i++) {
+                if (!fields[i].value) { fields[i].focus(); break; }
+            }
+        }, 100);
+    }
+    function closeEap() {
+        if (!eapModal) return;
+        eapModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Intercept all "Get Early Access" triggers (anchors to #waitlist)
+    document.querySelectorAll('a[href="#waitlist"]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            e.preventDefault();
+            openEap();
+        });
+    });
+
+    // Intercept the bottom email-only form — open modal with email prefilled
+    var bottomForm = document.getElementById('waitlist-form');
+    if (bottomForm) {
+        // Remove prior simple-success handler; replace with modal open
+        var bottomClone = bottomForm.cloneNode(true);
+        bottomForm.parentNode.replaceChild(bottomClone, bottomForm);
+        bottomClone.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var emailInput = bottomClone.querySelector('input[type="email"]');
+            var email = emailInput ? emailInput.value.trim() : '';
+            openEap(email);
+        });
+    }
+
+    // Close handlers
+    if (eapModal) {
+        eapModal.querySelectorAll('[data-eap-close]').forEach(function (el) {
+            el.addEventListener('click', closeEap);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && eapModal.classList.contains('open')) closeEap();
+        });
+    }
+
+    // Form submit → POST to Google Apps Script
+    if (eapForm) {
+        eapForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var submitBtn = eapForm.querySelector('.eap-submit');
+            var originalText = submitBtn.textContent;
+
+            var data = {
+                name: (eapForm.elements['name'].value || '').trim(),
+                email: (eapForm.elements['email'].value || '').trim(),
+                company: (eapForm.elements['company'].value || '').trim(),
+                role: eapForm.elements['role'].value || '',
+                source: window.location.href,
+                timestamp: new Date().toISOString()
+            };
+
+            if (!data.name || !data.email || !data.company || !data.role) return;
+
+            submitBtn.textContent = 'Submitting…';
+            submitBtn.disabled = true;
+            if (eapError) eapError.textContent = '';
+
+            // Google Apps Script Web Apps work best with no-cors + text/plain body.
+            // We can't read the response in no-cors mode, but the script still receives the POST.
+            if (EAP_SCRIPT_URL && EAP_SCRIPT_URL.indexOf('http') === 0) {
+                fetch(EAP_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(data)
+                }).then(function () {
+                    if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
+                    eapForm.hidden = true;
+                    if (eapSuccess) eapSuccess.hidden = false;
+                }).catch(function () {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    if (eapError) eapError.textContent = 'Something went wrong. Please try again or email us directly.';
+                });
+            } else {
+                // No script URL configured — show success anyway (dev mode).
+                if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
+                eapForm.hidden = true;
+                if (eapSuccess) eapSuccess.hidden = false;
+                console.warn('[Kompete] EAP_SCRIPT_URL not configured — submission not sent to Sheets.');
+            }
+        });
+    }
+
 })();
     </script>
+
+    <!-- Early Access Modal -->
+    <div id="eap-modal" class="eap-modal" role="dialog" aria-modal="true" aria-labelledby="eap-title">
+        <div class="eap-backdrop" data-eap-close></div>
+        <div class="eap-card">
+            <button class="eap-close" data-eap-close aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="eap-body">
+                <h3 id="eap-title">Get Early Access</h3>
+                <p class="eap-sub">Hand-picking the first 100 founders. Takes 30 seconds — we'll get back to you within 48 hours.</p>
+                <form class="eap-form" id="eap-form" novalidate>
+                    <input type="text" name="name" placeholder="Full name" required autocomplete="name">
+                    <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+                    <input type="text" name="company" placeholder="Company" required autocomplete="organization">
+                    <select name="role" required>
+                        <option value="" disabled selected>Your role</option>
+                        <option value="Founder / CEO">Founder / CEO</option>
+                        <option value="Marketing (CMO / PMM)">Marketing (CMO / PMM)</option>
+                        <option value="Sales (CRO / VP Sales)">Sales (CRO / VP Sales)</option>
+                        <option value="Product (CPO / PM)">Product (CPO / PM)</option>
+                        <option value="Strategy / Investor">Strategy / Investor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" class="eap-submit">Request Early Access</button>
+                    <p class="eap-error" aria-live="polite"></p>
+                    <p class="eap-micro">No spam. No credit card. Launch-day pricing locked in.</p>
+                </form>
+                <div class="eap-success" hidden>
+                    <div class="eap-success-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4>You're on the list.</h4>
+                    <p>We'll email you at <span class="eap-success-email"></span> within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
