@@ -2769,6 +2769,44 @@ footer {
         <p class="footer-copy">&copy; 2026 Kompete.ai</p>
     </footer>
 
+    <!-- Early Access Modal -->
+    <div id="eap-modal" class="eap-modal" role="dialog" aria-modal="true" aria-labelledby="eap-title">
+        <div class="eap-backdrop" data-eap-close></div>
+        <div class="eap-card">
+            <button class="eap-close" data-eap-close aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="eap-body">
+                <h3 id="eap-title">Get Early Access</h3>
+                <p class="eap-sub">Hand-picking the first 100 founders. Takes 30 seconds — we'll get back to you within 48 hours.</p>
+                <form class="eap-form" id="eap-form" novalidate>
+                    <input type="text" name="name" placeholder="Full name" required autocomplete="name">
+                    <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+                    <input type="text" name="company" placeholder="Company" required autocomplete="organization">
+                    <select name="role" required>
+                        <option value="" disabled selected>Your role</option>
+                        <option value="Founder / CEO">Founder / CEO</option>
+                        <option value="Marketing (CMO / PMM)">Marketing (CMO / PMM)</option>
+                        <option value="Sales (CRO / VP Sales)">Sales (CRO / VP Sales)</option>
+                        <option value="Product (CPO / PM)">Product (CPO / PM)</option>
+                        <option value="Strategy / Investor">Strategy / Investor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" class="eap-submit">Request Early Access</button>
+                    <p class="eap-error" aria-live="polite"></p>
+                    <p class="eap-micro">No spam. No credit card. Launch-day pricing locked in.</p>
+                </form>
+                <div class="eap-success" hidden>
+                    <div class="eap-success-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4>You're on the list.</h4>
+                    <p>We'll email you at <span class="eap-success-email"></span> within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
 /* Kompete.ai — v4 JavaScript (inline)
    Sticky nav, mobile menu, scroll reveal, form handling */
@@ -3103,44 +3141,6 @@ feeds.forEach(feed => {
 
 })();
     </script>
-
-    <!-- Early Access Modal -->
-    <div id="eap-modal" class="eap-modal" role="dialog" aria-modal="true" aria-labelledby="eap-title">
-        <div class="eap-backdrop" data-eap-close></div>
-        <div class="eap-card">
-            <button class="eap-close" data-eap-close aria-label="Close">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <div class="eap-body">
-                <h3 id="eap-title">Get Early Access</h3>
-                <p class="eap-sub">Hand-picking the first 100 founders. Takes 30 seconds — we'll get back to you within 48 hours.</p>
-                <form class="eap-form" id="eap-form" novalidate>
-                    <input type="text" name="name" placeholder="Full name" required autocomplete="name">
-                    <input type="email" name="email" placeholder="Work email" required autocomplete="email">
-                    <input type="text" name="company" placeholder="Company" required autocomplete="organization">
-                    <select name="role" required>
-                        <option value="" disabled selected>Your role</option>
-                        <option value="Founder / CEO">Founder / CEO</option>
-                        <option value="Marketing (CMO / PMM)">Marketing (CMO / PMM)</option>
-                        <option value="Sales (CRO / VP Sales)">Sales (CRO / VP Sales)</option>
-                        <option value="Product (CPO / PM)">Product (CPO / PM)</option>
-                        <option value="Strategy / Investor">Strategy / Investor</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <button type="submit" class="eap-submit">Request Early Access</button>
-                    <p class="eap-error" aria-live="polite"></p>
-                    <p class="eap-micro">No spam. No credit card. Launch-day pricing locked in.</p>
-                </form>
-                <div class="eap-success" hidden>
-                    <div class="eap-success-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <h4>You're on the list.</h4>
-                    <p>We'll email you at <span class="eap-success-email"></span> within 48 hours.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>
