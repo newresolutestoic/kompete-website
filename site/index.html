@@ -2958,11 +2958,11 @@ feeds.forEach(feed => {
         });
     });
 
-    // --- Smooth scroll for anchor links ---
+    // --- Smooth scroll for anchor links (skip #waitlist — handled by modal) ---
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
             var targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || targetId === '#waitlist') return;
 
             var target = document.querySelector(targetId);
             if (target) {
