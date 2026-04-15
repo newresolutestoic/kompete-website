@@ -3035,17 +3035,32 @@ feeds.forEach(feed => {
     var eapSuccess = eapModal ? eapModal.querySelector('.eap-success') : null;
     var eapSuccessEmail = eapModal ? eapModal.querySelector('.eap-success-email') : null;
     var eapError = eapModal ? eapModal.querySelector('.eap-error') : null;
+    var EAP_SUBMIT_DEFAULT = 'Request Early Access';
+    var eapController = null; // tracks in-flight submission so we can abort on close
+
+    function resetEapFormState() {
+        if (!eapForm) return;
+        eapForm.reset();
+        eapForm.hidden = false;
+        // Reset submit button
+        var submitBtn = eapForm.querySelector('.eap-submit');
+        if (submitBtn) {
+            submitBtn.textContent = EAP_SUBMIT_DEFAULT;
+            submitBtn.disabled = false;
+        }
+        // Clear validation states
+        eapForm.querySelectorAll('.eap-invalid').forEach(function (el) {
+            el.classList.remove('eap-invalid');
+        });
+        if (eapSuccess) eapSuccess.hidden = true;
+        if (eapError) eapError.textContent = '';
+    }
 
     function openEap(prefillEmail) {
         if (!eapModal) return;
         eapModal.classList.add('open');
         document.body.style.overflow = 'hidden';
-        if (eapForm) {
-            eapForm.hidden = false;
-            eapForm.reset();
-        }
-        if (eapSuccess) eapSuccess.hidden = true;
-        if (eapError) eapError.textContent = '';
+        resetEapFormState();
         if (prefillEmail && eapForm) {
             var emailField = eapForm.querySelector('[name="email"]');
             if (emailField) emailField.value = prefillEmail;
@@ -3061,6 +3076,11 @@ feeds.forEach(feed => {
     }
     function closeEap() {
         if (!eapModal) return;
+        // Abort in-flight submission so a late response can't overwrite the next open
+        if (eapController) {
+            try { eapController.abort(); } catch (_) {}
+            eapController = null;
+        }
         eapModal.classList.remove('open');
         document.body.style.overflow = '';
     }
@@ -3161,14 +3181,25 @@ feeds.forEach(feed => {
             // Google Apps Script Web Apps work best with no-cors + text/plain body.
             // We can't read the response in no-cors mode, but the script still receives the POST.
             if (EAP_SCRIPT_URL && EAP_SCRIPT_URL.indexOf('http') === 0) {
+                // Abort any prior in-flight request before starting a new one
+                if (eapController) { try { eapController.abort(); } catch (_) {} }
+                eapController = new AbortController();
+                var thisController = eapController;
                 fetch(EAP_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(data),
+                    signal: thisController.signal
                 }).then(function () {
+                    // Ignore if this submission was aborted (modal closed, etc.)
+                    if (thisController.signal.aborted) return;
+                    eapController = null;
                     showSuccess();
-                }).catch(function () {
+                }).catch(function (err) {
+                    // Silent ignore on abort — user closed the modal mid-flight
+                    if (err && err.name === 'AbortError') return;
+                    eapController = null;
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                     if (eapError) eapError.textContent = 'Something went wrong. Please try again or email us directly.';
