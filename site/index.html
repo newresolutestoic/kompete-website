@@ -1941,6 +1941,13 @@ footer {
     margin-bottom: 1.5rem;
 }
 .eap-form { display: flex; flex-direction: column; gap: 0.625rem; }
+.eap-form[hidden] { display: none !important; }
+.eap-success[hidden] { display: none !important; }
+.eap-form input.eap-invalid,
+.eap-form select.eap-invalid {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.06);
+}
 .eap-form input,
 .eap-form select {
     width: 100%;
@@ -2779,7 +2786,7 @@ footer {
             <div class="eap-body">
                 <h3 id="eap-title">Get Early Access</h3>
                 <p class="eap-sub">Hand-picking the first 100 founders. Takes 30 seconds — we'll get back to you within 48 hours.</p>
-                <form class="eap-form" id="eap-form" novalidate>
+                <form class="eap-form" id="eap-form">
                     <input type="text" name="name" placeholder="Full name" required autocomplete="name">
                     <input type="email" name="email" placeholder="Work email" required autocomplete="email">
                     <input type="text" name="company" placeholder="Company" required autocomplete="organization">
@@ -3092,25 +3099,64 @@ feeds.forEach(feed => {
 
     // Form submit → POST to Google Apps Script
     if (eapForm) {
+        // Clear invalid state as user types/changes fields
+        eapForm.querySelectorAll('input, select').forEach(function (field) {
+            field.addEventListener('input', function () { field.classList.remove('eap-invalid'); });
+            field.addEventListener('change', function () { field.classList.remove('eap-invalid'); });
+        });
+
         eapForm.addEventListener('submit', function (e) {
             e.preventDefault();
             var submitBtn = eapForm.querySelector('.eap-submit');
             var originalText = submitBtn.textContent;
 
+            // Explicit validation — flag empty/invalid fields, bail out if any
+            var nameEl = eapForm.elements['name'];
+            var emailEl = eapForm.elements['email'];
+            var companyEl = eapForm.elements['company'];
+            var roleEl = eapForm.elements['role'];
+
+            var name = (nameEl.value || '').trim();
+            var email = (emailEl.value || '').trim();
+            var company = (companyEl.value || '').trim();
+            var role = roleEl.value || '';
+
+            // Clear prior invalid states
+            [nameEl, emailEl, companyEl, roleEl].forEach(function (el) { el.classList.remove('eap-invalid'); });
+
+            var firstInvalid = null;
+            var errorMsg = '';
+            if (!name) { nameEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || nameEl; errorMsg = 'Please fill in all fields.'; }
+            if (!email) { emailEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || emailEl; errorMsg = 'Please fill in all fields.'; }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || emailEl; errorMsg = 'Please enter a valid email address.'; }
+            if (!company) { companyEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || companyEl; errorMsg = errorMsg || 'Please fill in all fields.'; }
+            if (!role) { roleEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || roleEl; errorMsg = errorMsg || 'Please pick your role.'; }
+
+            if (firstInvalid) {
+                if (eapError) eapError.textContent = errorMsg;
+                firstInvalid.focus();
+                return;
+            }
+
+            // All valid — proceed with submission
+            if (eapError) eapError.textContent = '';
             var data = {
-                name: (eapForm.elements['name'].value || '').trim(),
-                email: (eapForm.elements['email'].value || '').trim(),
-                company: (eapForm.elements['company'].value || '').trim(),
-                role: eapForm.elements['role'].value || '',
+                name: name,
+                email: email,
+                company: company,
+                role: role,
                 source: window.location.href,
                 timestamp: new Date().toISOString()
             };
 
-            if (!data.name || !data.email || !data.company || !data.role) return;
-
             submitBtn.textContent = 'Submitting…';
             submitBtn.disabled = true;
-            if (eapError) eapError.textContent = '';
+
+            function showSuccess() {
+                if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
+                eapForm.hidden = true;
+                if (eapSuccess) eapSuccess.hidden = false;
+            }
 
             // Google Apps Script Web Apps work best with no-cors + text/plain body.
             // We can't read the response in no-cors mode, but the script still receives the POST.
@@ -3121,19 +3167,14 @@ feeds.forEach(feed => {
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(data)
                 }).then(function () {
-                    if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
-                    eapForm.hidden = true;
-                    if (eapSuccess) eapSuccess.hidden = false;
+                    showSuccess();
                 }).catch(function () {
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                     if (eapError) eapError.textContent = 'Something went wrong. Please try again or email us directly.';
                 });
             } else {
-                // No script URL configured — show success anyway (dev mode).
-                if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
-                eapForm.hidden = true;
-                if (eapSuccess) eapSuccess.hidden = false;
+                showSuccess();
                 console.warn('[Kompete] EAP_SCRIPT_URL not configured — submission not sent to Sheets.');
             }
         });
