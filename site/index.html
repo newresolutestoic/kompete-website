@@ -3035,9 +3035,8 @@ feeds.forEach(feed => {
     // =============================================
     // EARLY ACCESS MODAL
     // =============================================
-    // Paste the Google Apps Script Web App URL here (replace the placeholder).
-    // See setup instructions the team shared alongside this file.
-    var EAP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVvGM2XKNa5241NrhxsVnpqoxbDxjIVdf0deiAhaUmE-BkT6ogIhW77YsOEquqgAtB/exec';
+    // Signups are stored by the Kompete backend (Supabase website_leads).
+    var EAP_API_URL = 'https://d2xxex113f5nik.cloudfront.net/api';
 
     var eapModal = document.getElementById('eap-modal');
     var eapForm = document.getElementById('eap-form');
@@ -3126,7 +3125,7 @@ feeds.forEach(feed => {
         });
     }
 
-    // Form submit → POST to Google Apps Script
+    // Form submit → POST to the Kompete backend
     if (eapForm) {
         // Clear invalid state as user types/changes fields
         eapForm.querySelectorAll('input, select').forEach(function (field) {
@@ -3187,23 +3186,23 @@ feeds.forEach(feed => {
                 if (eapSuccess) eapSuccess.hidden = false;
             }
 
-            // Google Apps Script Web Apps work best with no-cors + text/plain body.
-            // We can't read the response in no-cors mode, but the script still receives the POST.
-            if (EAP_SCRIPT_URL && EAP_SCRIPT_URL.indexOf('http') === 0) {
+            if (EAP_API_URL) {
                 // Abort any prior in-flight request before starting a new one
                 if (eapController) { try { eapController.abort(); } catch (_) {} }
                 eapController = new AbortController();
                 var thisController = eapController;
-                fetch(EAP_SCRIPT_URL, {
+
+                // text/plain keeps this a simple request (no CORS preflight).
+                fetch(EAP_API_URL.replace(/\/$/, '') + '/public/leads', {
                     method: 'POST',
-                    mode: 'no-cors',
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(data),
                     signal: thisController.signal
-                }).then(function () {
+                }).then(function (r) {
                     // Ignore if this submission was aborted (modal closed, etc.)
                     if (thisController.signal.aborted) return;
                     eapController = null;
+                    if (!r.ok) throw new Error('save failed ' + r.status);
                     showSuccess();
                 }).catch(function (err) {
                     // Silent ignore on abort — user closed the modal mid-flight
@@ -3215,7 +3214,7 @@ feeds.forEach(feed => {
                 });
             } else {
                 showSuccess();
-                console.warn('[Kompete] EAP_SCRIPT_URL not configured — submission not sent to Sheets.');
+                console.warn('[Kompete] EAP_API_URL not configured — submission not sent.');
             }
         });
     }
