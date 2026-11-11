@@ -2859,6 +2859,18 @@ footer {
                         <button type="button" class="eap-add-competitor">+ Add another competitor</button>
                         <span class="eap-hint">Demo uses a sample of their latest ads</span>
                     </div>
+                    <label class="eap-field"><span>How did you hear about us?</span>
+                        <select name="heard_from" required>
+                            <option value="" disabled selected>Choose</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Reddit">Reddit</option>
+                            <option value="Substack">Substack</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Google search">Google search</option>
+                            <option value="AI assistant">ChatGPT / Claude / other AI</option>
+                            <option value="Friend or colleague">Friend or colleague</option>
+                            <option value="Other">Other</option>
+                        </select></label>
                     <button type="submit" class="eap-submit">Book my demo</button>
                     <p class="eap-error" aria-live="polite"></p>
                 </form>
@@ -2866,8 +2878,8 @@ footer {
                     <div class="eap-success-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
-                    <h4>Your demo is on its way.</h4>
-                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time.</p>
+                    <h4>You're in. Now pick a time.</h4>
+                    <p>We've saved your details. Choose a slot for your demo, or we'll email <span class="eap-success-email"></span> to set one up.</p>
                     <p class="eap-success-note">Your demo compares you with <span class="eap-success-competitor"></span>, using a sample of their latest ads (usually 100–200).</p>
                     <a class="eap-submit eap-calendar" href="#" target="_blank" rel="noopener" hidden>Pick a time</a>
                 </div>
@@ -3098,7 +3110,7 @@ feeds.forEach(feed => {
     var EAP_SUBMIT_DEFAULT = 'Book my demo';
     // Paste the booking link (Google Calendar appointment page / Calendly) here.
     // While empty, the success screen just promises an email within 24 hours.
-    var EAP_CALENDAR_URL = '';
+    var EAP_CALENDAR_URL = 'https://calendar.app.google/hmqoJ6xzMYaHANvRA';
     var PERSONAL_EMAIL_DOMAINS = ['gmail.com','googlemail.com','yahoo.com','yahoo.co.in','yahoo.in','hotmail.com','outlook.com','live.com','msn.com','icloud.com','me.com','mac.com','aol.com','proton.me','protonmail.com','rediffmail.com','zoho.com','zohomail.in','gmx.com','yandex.com','mail.com'];
     // "https://www.Acme.com/pricing" -> "acme.com"; returns '' if it isn't a domain.
     function normalizeSite(v) {
@@ -3151,6 +3163,8 @@ feeds.forEach(feed => {
         if (eapError) eapError.textContent = '';
         var lead = eapModal ? eapModal.querySelector('.eap-lead') : null;
         if (lead) lead.hidden = false;
+        var sub = eapModal ? eapModal.querySelector('.eap-body > .eap-sub') : null;
+        if (sub) sub.hidden = false;
     }
 
     function openEap(prefillEmail) {
@@ -3232,6 +3246,8 @@ feeds.forEach(feed => {
             var emailEl = eapForm.elements['email'];
             var companyEl = eapForm.elements['company'];
             var roleEl = eapForm.elements['role'];
+            var heardEl = eapForm.elements['heard_from'];
+            var heardFrom = heardEl.value || '';
             var competitorEls = competitorInputs();
             var competitorEl = competitorEls[0];
 
@@ -3253,7 +3269,7 @@ feeds.forEach(feed => {
             var emailDomain = email.split('@')[1] ? email.split('@')[1].toLowerCase() : '';
 
             // Clear prior invalid states
-            [nameEl, emailEl, companyEl, roleEl, competitorEl].forEach(function (el) { el.classList.remove('eap-invalid'); });
+            [nameEl, emailEl, companyEl, roleEl, competitorEl, heardEl].forEach(function (el) { el.classList.remove('eap-invalid'); });
 
             var firstInvalid = null;
             var errorMsg = '';
@@ -3267,6 +3283,7 @@ feeds.forEach(feed => {
             if (!competitorEl.value.trim()) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please fill in all fields.'; }
             else if (!competitorSite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please enter one competitor website, like rival.com.'; }
             else if (competitorSite === companySite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'That is your own website. Enter a competitor\'s.'; }
+            if (!heardFrom) { heardEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || heardEl; errorMsg = errorMsg || 'Please tell us how you heard about us.'; }
             if (badExtra) { badExtra.classList.add('eap-invalid'); firstInvalid = firstInvalid || badExtra; errorMsg = errorMsg || 'One of the extra competitors isn\'t a website. Fix it or clear it.'; }
 
             if (firstInvalid) {
@@ -3282,9 +3299,10 @@ feeds.forEach(feed => {
                 email: email,
                 // The leads endpoint only stores name/email/company/role today, so both
                 // websites also ride in "company" until it learns the new fields.
-                company: (companySite + ' · vs ' + competitorSites.join(', ')).slice(0, 200),
+                company: (companySite + ' · vs ' + competitorSites.join(', ') + ' · via ' + heardFrom).slice(0, 200),
                 company_website: companySite,
                 competitor_websites: competitorSites,
+                heard_from: heardFrom,
                 role: role,
                 source: window.location.href,
                 timestamp: new Date().toISOString()
@@ -3297,6 +3315,8 @@ feeds.forEach(feed => {
                 if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
                 var lead = eapModal.querySelector('.eap-lead');
                 if (lead) lead.hidden = true;
+                var sub = eapModal.querySelector('.eap-body > .eap-sub');
+                if (sub) sub.hidden = true;
                 var sc = eapModal.querySelector('.eap-success-competitor');
                 if (sc) sc.textContent = competitorSites[0];
                 var cal = eapModal.querySelector('.eap-calendar');
