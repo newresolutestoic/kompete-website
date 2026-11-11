@@ -2016,6 +2016,19 @@ footer {
     opacity: 0.6;
     margin: -0.35rem 0 0.15rem;
 }
+.eap-competitors { display: flex; flex-direction: column; gap: inherit; }
+.eap-add-competitor {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--accent-light);
+    font-family: var(--font);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+.eap-add-competitor:hover { text-decoration: underline; }
+.eap-add-competitor[hidden] { display: none; }
 .eap-calendar { display: inline-block; margin-top: 1rem; text-decoration: none; text-align: center; }
 .eap-calendar[hidden] { display: none; }
 .eap-micro {
@@ -2813,8 +2826,11 @@ footer {
                     <input type="text" name="name" placeholder="Full name" required autocomplete="name">
                     <input type="email" name="email" placeholder="Work email" required autocomplete="email">
                     <input type="text" name="company" placeholder="Your company website (e.g. acme.com)" required autocomplete="url" inputmode="url">
-                    <input type="text" name="competitor" placeholder="Competitor website (e.g. rival.com)" required inputmode="url" autocomplete="off">
-                    <p class="eap-hint">One competitor for the demo. We'll add the rest after.</p>
+                    <div class="eap-competitors">
+                        <input type="text" name="competitor" placeholder="Competitor website (e.g. rival.com)" required inputmode="url" autocomplete="off">
+                    </div>
+                    <button type="button" class="eap-add-competitor">+ Add another competitor</button>
+                    <p class="eap-hint">The demo compares you with the first competitor, using a sample of their latest ads (usually 100–200). The others help us prepare your full setup.</p>
                     <select name="role" required>
                         <option value="" disabled selected>Your role</option>
                         <option value="Founder / CEO">Founder / CEO</option>
@@ -2833,7 +2849,7 @@ footer {
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
                     <h4>Your demo is on its way.</h4>
-                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time.</p>
+                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time. Your demo covers <span class="eap-success-competitor"></span>, using a sample of their latest ads.</p>
                     <a class="eap-submit eap-calendar" href="#" target="_blank" rel="noopener" hidden>Pick a time</a>
                 </div>
             </div>
@@ -3072,9 +3088,34 @@ feeds.forEach(feed => {
     }
     var eapController = null; // tracks in-flight submission so we can abort on close
 
+    var MAX_COMPETITORS = 5;
+    var eapCompetitors = eapForm ? eapForm.querySelector('.eap-competitors') : null;
+    var eapAddCompetitor = eapForm ? eapForm.querySelector('.eap-add-competitor') : null;
+    function competitorInputs() {
+        return eapCompetitors ? Array.prototype.slice.call(eapCompetitors.querySelectorAll('input[name="competitor"]')) : [];
+    }
+    if (eapAddCompetitor) {
+        eapAddCompetitor.addEventListener('click', function () {
+            var n = competitorInputs().length;
+            if (n >= MAX_COMPETITORS) return;
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'competitor';
+            input.placeholder = 'Another competitor (optional)';
+            input.inputMode = 'url';
+            input.autocomplete = 'off';
+            input.addEventListener('input', function () { input.classList.remove('eap-invalid'); });
+            eapCompetitors.appendChild(input);
+            input.focus();
+            eapAddCompetitor.hidden = n + 1 >= MAX_COMPETITORS;
+        });
+    }
+
     function resetEapFormState() {
         if (!eapForm) return;
         eapForm.reset();
+        competitorInputs().slice(1).forEach(function (el) { el.remove(); });
+        if (eapAddCompetitor) eapAddCompetitor.hidden = false;
         eapForm.hidden = false;
         // Reset submit button
         var submitBtn = eapForm.querySelector('.eap-submit');
@@ -3171,7 +3212,8 @@ feeds.forEach(feed => {
             var emailEl = eapForm.elements['email'];
             var companyEl = eapForm.elements['company'];
             var roleEl = eapForm.elements['role'];
-            var competitorEl = eapForm.elements['competitor'];
+            var competitorEls = competitorInputs();
+            var competitorEl = competitorEls[0];
 
             var name = (nameEl.value || '').trim();
             var email = (emailEl.value || '').trim();
@@ -3179,6 +3221,15 @@ feeds.forEach(feed => {
             var role = roleEl.value || '';
             var companySite = normalizeSite(company);
             var competitorSite = normalizeSite(competitorEl.value);
+            var competitorSites = [];
+            var badExtra = null;
+            competitorEls.forEach(function (el) {
+                el.classList.remove('eap-invalid');
+                if (!el.value.trim()) return;
+                var d = normalizeSite(el.value);
+                if (!d || d === companySite) { if (el !== competitorEl) badExtra = badExtra || el; return; }
+                if (competitorSites.indexOf(d) === -1) competitorSites.push(d);
+            });
             var emailDomain = email.split('@')[1] ? email.split('@')[1].toLowerCase() : '';
 
             // Clear prior invalid states
@@ -3196,6 +3247,7 @@ feeds.forEach(feed => {
             if (!competitorEl.value.trim()) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please fill in all fields.'; }
             else if (!competitorSite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please enter one competitor website, like rival.com.'; }
             else if (competitorSite === companySite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'That is your own website. Enter a competitor\'s.'; }
+            if (badExtra) { badExtra.classList.add('eap-invalid'); firstInvalid = firstInvalid || badExtra; errorMsg = errorMsg || 'One of the extra competitors isn\'t a website. Fix it or clear it.'; }
 
             if (firstInvalid) {
                 if (eapError) eapError.textContent = errorMsg;
@@ -3210,9 +3262,9 @@ feeds.forEach(feed => {
                 email: email,
                 // The leads endpoint only stores name/email/company/role today, so both
                 // websites also ride in "company" until it learns the new fields.
-                company: companySite + ' · vs ' + competitorSite,
+                company: (companySite + ' · vs ' + competitorSites.join(', ')).slice(0, 200),
                 company_website: companySite,
-                competitor_website: competitorSite,
+                competitor_websites: competitorSites,
                 role: role,
                 source: window.location.href,
                 timestamp: new Date().toISOString()
@@ -3225,6 +3277,8 @@ feeds.forEach(feed => {
                 if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
                 var lead = eapModal.querySelector('.eap-lead');
                 if (lead) lead.hidden = true;
+                var sc = eapModal.querySelector('.eap-success-competitor');
+                if (sc) sc.textContent = competitorSites[0];
                 var cal = eapModal.querySelector('.eap-calendar');
                 if (cal && EAP_CALENDAR_URL) { cal.href = EAP_CALENDAR_URL; cal.hidden = false; }
                 eapForm.hidden = true;
