@@ -181,6 +181,7 @@ ul { list-style: none; }
 }
 .nav-links a:hover { color: var(--text-primary); }
 .nav-cta {
+    white-space: nowrap;
     padding: 0.5rem 1.125rem;
     background: var(--accent);
     color: #fff !important;
@@ -2003,6 +2004,20 @@ footer {
 .eap-submit:hover:not(:disabled) { background: var(--accent-light); }
 .eap-submit:active:not(:disabled) { transform: translateY(1px); }
 .eap-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.eap-body h3.eap-lead {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin: 0 0 1.25rem;
+    padding-right: 1.5rem;
+}
+.eap-hint {
+    font-size: 0.78rem;
+    opacity: 0.6;
+    margin: -0.35rem 0 0.15rem;
+}
+.eap-calendar { display: inline-block; margin-top: 1rem; text-decoration: none; text-align: center; }
+.eap-calendar[hidden] { display: none; }
 .eap-micro {
     font-size: 0.6875rem;
     color: var(--text-muted);
@@ -2063,7 +2078,7 @@ footer {
                 <a href="#why-kompete">Why Kompete</a>
                 <a href="#proof">Proof</a>
                 <a href="#faq">FAQ</a>
-                <a href="#waitlist" class="nav-cta">Get Early Access</a>
+                <a href="#waitlist" class="nav-cta">Uncover your competitors' playbook</a>
             </div>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -2077,8 +2092,8 @@ footer {
             <h1>Turn Competitor Moves<br>Into Your Revenue.</h1>
             <p class="hero-sub">Competitors are making moves right now. Kompete.ai catches every one — before it costs you a deal, a customer, or a quarter.</p>
             <div class="hero-cta-group">
-                <a href="#waitlist" class="btn-primary">Get Early Access</a>
-                <p class="cta-micro">Free for early adopters. No credit card required.</p>
+                <a href="#waitlist" class="btn-primary">Uncover your competitors' playbook</a>
+                <p class="cta-micro">A live demo on your own competitor. No credit card.</p>
             </div>
         </div>
 
@@ -2437,7 +2452,7 @@ footer {
                 </div>
             </div>
             <div class="why-cta">
-                <a href="#waitlist" class="btn-primary">Get Early Access</a>
+                <a href="#waitlist" class="btn-primary">Uncover your competitors' playbook</a>
             </div>
         </div>
     </section>
@@ -2752,12 +2767,12 @@ footer {
     <section id="waitlist">
         <div class="section-container waitlist-container">
             <h2>The deals you'll lose next quarter<br>are slipping right now.</h2>
-            <p class="waitlist-sub">Join the waitlist. Intelligence that reaches sales, marketing, product, and leadership — on autopilot. Free for early adopters.</p>
+            <p class="waitlist-sub">We'll run Kompete on one competitor of yours and show you, live, what's working on the buyers you share.</p>
             <form class="waitlist-form" id="waitlist-form">
                 <input type="email" placeholder="Enter your work email" required aria-label="Email address">
-                <button type="submit" class="btn-primary">Get Early Access</button>
+                <button type="submit" class="btn-primary">Uncover your competitors' playbook</button>
             </form>
-            <p class="cta-micro">No spam. No credit card. Launch-day pricing locked in for early access.</p>
+            <p class="cta-micro">One competitor per demo. No credit card.</p>
         </div>
     </section>
 
@@ -2793,12 +2808,13 @@ footer {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
             <div class="eap-body">
-                <h3 id="eap-title">Get Early Access</h3>
-                <p class="eap-sub">Hand-picking the first 100 founders. Takes 30 seconds — we'll get back to you within 48 hours.</p>
+                <h3 id="eap-title" class="eap-lead">We'll run Kompete on one competitor of yours and show you what's working on the buyers you share.</h3>
                 <form class="eap-form" id="eap-form">
                     <input type="text" name="name" placeholder="Full name" required autocomplete="name">
                     <input type="email" name="email" placeholder="Work email" required autocomplete="email">
-                    <input type="text" name="company" placeholder="Company" required autocomplete="organization">
+                    <input type="text" name="company" placeholder="Your company website (e.g. acme.com)" required autocomplete="url" inputmode="url">
+                    <input type="text" name="competitor" placeholder="Competitor website (e.g. rival.com)" required inputmode="url" autocomplete="off">
+                    <p class="eap-hint">One competitor for the demo. We'll add the rest after.</p>
                     <select name="role" required>
                         <option value="" disabled selected>Your role</option>
                         <option value="Founder / CEO">Founder / CEO</option>
@@ -2808,16 +2824,17 @@ footer {
                         <option value="Strategy / Investor">Strategy / Investor</option>
                         <option value="Other">Other</option>
                     </select>
-                    <button type="submit" class="eap-submit">Request Early Access</button>
+                    <button type="submit" class="eap-submit">Book my demo</button>
                     <p class="eap-error" aria-live="polite"></p>
-                    <p class="eap-micro">No spam. No credit card. Launch-day pricing locked in.</p>
+                    <p class="eap-micro">No spam. No credit card.</p>
                 </form>
                 <div class="eap-success" hidden>
                     <div class="eap-success-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
-                    <h4>You're on the list.</h4>
-                    <p>We'll email you at <span class="eap-success-email"></span> within 48 hours.</p>
+                    <h4>Your demo is on its way.</h4>
+                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time.</p>
+                    <a class="eap-submit eap-calendar" href="#" target="_blank" rel="noopener" hidden>Pick a time</a>
                 </div>
             </div>
         </div>
@@ -3043,7 +3060,16 @@ feeds.forEach(feed => {
     var eapSuccess = eapModal ? eapModal.querySelector('.eap-success') : null;
     var eapSuccessEmail = eapModal ? eapModal.querySelector('.eap-success-email') : null;
     var eapError = eapModal ? eapModal.querySelector('.eap-error') : null;
-    var EAP_SUBMIT_DEFAULT = 'Request Early Access';
+    var EAP_SUBMIT_DEFAULT = 'Book my demo';
+    // Paste the booking link (Google Calendar appointment page / Calendly) here.
+    // While empty, the success screen just promises an email within 24 hours.
+    var EAP_CALENDAR_URL = '';
+    var PERSONAL_EMAIL_DOMAINS = ['gmail.com','googlemail.com','yahoo.com','yahoo.co.in','yahoo.in','hotmail.com','outlook.com','live.com','msn.com','icloud.com','me.com','mac.com','aol.com','proton.me','protonmail.com','rediffmail.com','zoho.com','zohomail.in','gmx.com','yandex.com','mail.com'];
+    // "https://www.Acme.com/pricing" -> "acme.com"; returns '' if it isn't a domain.
+    function normalizeSite(v) {
+        var d = String(v || '').trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').split(/[\/?#\s]/)[0];
+        return /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(d) ? d : '';
+    }
     var eapController = null; // tracks in-flight submission so we can abort on close
 
     function resetEapFormState() {
@@ -3062,6 +3088,8 @@ feeds.forEach(feed => {
         });
         if (eapSuccess) eapSuccess.hidden = true;
         if (eapError) eapError.textContent = '';
+        var lead = eapModal ? eapModal.querySelector('.eap-lead') : null;
+        if (lead) lead.hidden = false;
     }
 
     function openEap(prefillEmail) {
@@ -3143,22 +3171,31 @@ feeds.forEach(feed => {
             var emailEl = eapForm.elements['email'];
             var companyEl = eapForm.elements['company'];
             var roleEl = eapForm.elements['role'];
+            var competitorEl = eapForm.elements['competitor'];
 
             var name = (nameEl.value || '').trim();
             var email = (emailEl.value || '').trim();
             var company = (companyEl.value || '').trim();
             var role = roleEl.value || '';
+            var companySite = normalizeSite(company);
+            var competitorSite = normalizeSite(competitorEl.value);
+            var emailDomain = email.split('@')[1] ? email.split('@')[1].toLowerCase() : '';
 
             // Clear prior invalid states
-            [nameEl, emailEl, companyEl, roleEl].forEach(function (el) { el.classList.remove('eap-invalid'); });
+            [nameEl, emailEl, companyEl, roleEl, competitorEl].forEach(function (el) { el.classList.remove('eap-invalid'); });
 
             var firstInvalid = null;
             var errorMsg = '';
             if (!name) { nameEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || nameEl; errorMsg = 'Please fill in all fields.'; }
             if (!email) { emailEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || emailEl; errorMsg = 'Please fill in all fields.'; }
             else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || emailEl; errorMsg = 'Please enter a valid email address.'; }
+            else if (PERSONAL_EMAIL_DOMAINS.indexOf(emailDomain) !== -1) { emailEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || emailEl; errorMsg = 'Please use your work email.'; }
             if (!company) { companyEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || companyEl; errorMsg = errorMsg || 'Please fill in all fields.'; }
+            else if (!companySite) { companyEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || companyEl; errorMsg = errorMsg || 'Please enter your company website, like acme.com.'; }
             if (!role) { roleEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || roleEl; errorMsg = errorMsg || 'Please pick your role.'; }
+            if (!competitorEl.value.trim()) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please fill in all fields.'; }
+            else if (!competitorSite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'Please enter one competitor website, like rival.com.'; }
+            else if (competitorSite === companySite) { competitorEl.classList.add('eap-invalid'); firstInvalid = firstInvalid || competitorEl; errorMsg = errorMsg || 'That is your own website. Enter a competitor\'s.'; }
 
             if (firstInvalid) {
                 if (eapError) eapError.textContent = errorMsg;
@@ -3171,7 +3208,11 @@ feeds.forEach(feed => {
             var data = {
                 name: name,
                 email: email,
-                company: company,
+                // The leads endpoint only stores name/email/company/role today, so both
+                // websites also ride in "company" until it learns the new fields.
+                company: companySite + ' · vs ' + competitorSite,
+                company_website: companySite,
+                competitor_website: competitorSite,
                 role: role,
                 source: window.location.href,
                 timestamp: new Date().toISOString()
@@ -3182,6 +3223,10 @@ feeds.forEach(feed => {
 
             function showSuccess() {
                 if (eapSuccessEmail) eapSuccessEmail.textContent = data.email;
+                var lead = eapModal.querySelector('.eap-lead');
+                if (lead) lead.hidden = true;
+                var cal = eapModal.querySelector('.eap-calendar');
+                if (cal && EAP_CALENDAR_URL) { cal.href = EAP_CALENDAR_URL; cal.hidden = false; }
                 eapForm.hidden = true;
                 if (eapSuccess) eapSuccess.hidden = false;
             }
