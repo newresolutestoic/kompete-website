@@ -15,9 +15,10 @@
     <title>Kompete.ai — Competitive Intelligence That Drives Growth</title>
     <meta name="description" content="Kompete.ai monitors every competitor move and turns it into action — for sales, marketing, product, and CS. Alerts, battle cards, and strategic briefs on autopilot.">
     <meta property="og:title" content="Kompete.ai — Competitive Intelligence, Automated">
-    <meta property="og:description" content="Real-time competitor alerts, auto-updating battle cards, and weekly strategic briefs — for your entire go-to-market team.">
+    <meta property="og:description" content="Daily competitor alerts, auto-updating battle cards, and weekly strategic briefs — for your entire go-to-market team.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kompete.ai">
+    <link rel="canonical" href="https://kompete.ai/">
+    <meta property="og:url" content="https://kompete.ai/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist/dist/fonts/geist-sans/style.css">
     <style>
 /* ============================================
@@ -1906,13 +1907,15 @@ footer {
 .eap-card {
     position: relative;
     width: 100%;
-    max-width: 440px;
+    max-width: 480px;
+    max-height: calc(100vh - 2rem);
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 120px rgba(99, 102, 241, 0.08);
     animation: eapPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 @keyframes eapFadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes eapPopIn {
@@ -1950,7 +1953,7 @@ footer {
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
-.eap-form { display: flex; flex-direction: column; gap: 0.625rem; }
+.eap-form { display: flex; flex-direction: column; gap: 0.9rem; }
 .eap-form[hidden] { display: none !important; }
 .eap-success[hidden] { display: none !important; }
 .eap-form input.eap-invalid,
@@ -2005,18 +2008,23 @@ footer {
 .eap-submit:active:not(:disabled) { transform: translateY(1px); }
 .eap-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .eap-body h3.eap-lead {
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.45;
-    margin: 0 0 1.25rem;
-    padding-right: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.4rem;
+    padding-right: 2rem;
 }
-.eap-hint {
-    font-size: 0.78rem;
-    opacity: 0.6;
-    margin: -0.35rem 0 0.15rem;
-}
-.eap-competitors { display: flex; flex-direction: column; gap: inherit; }
+.eap-body .eap-sub { margin-bottom: 1.5rem; }
+.eap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.eap-field { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+.eap-field > span { font-size: 0.75rem; font-weight: 500; color: var(--text-secondary); letter-spacing: 0.01em; }
+.eap-form .eap-competitors:empty { display: none; }
+.eap-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-top: -0.15rem; }
+.eap-hint { font-size: 0.75rem; color: var(--text-secondary); opacity: 0.75; }
+.eap-success-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.75rem; opacity: 0.85; }
+@media (max-width: 480px) { .eap-row { grid-template-columns: 1fr; } }
+.eap-competitors { display: flex; flex-direction: column; gap: 0.625rem; }
 .eap-add-competitor {
     align-self: flex-start;
     background: none;
@@ -2091,7 +2099,7 @@ footer {
                 <a href="#why-kompete">Why Kompete</a>
                 <a href="#proof">Proof</a>
                 <a href="#faq">FAQ</a>
-                <a href="#waitlist" class="nav-cta">Uncover your competitors' playbook</a>
+                <a href="#waitlist" class="nav-cta">Uncover competitors' playbook</a>
             </div>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
@@ -2105,7 +2113,7 @@ footer {
             <h1>Turn Competitor Moves<br>Into Your Revenue.</h1>
             <p class="hero-sub">Competitors are making moves right now. Kompete.ai catches every one — before it costs you a deal, a customer, or a quarter.</p>
             <div class="hero-cta-group">
-                <a href="#waitlist" class="btn-primary">Uncover your competitors' playbook</a>
+                <a href="#waitlist" class="btn-primary">Uncover competitors' playbook</a>
                 <p class="cta-micro">A live demo on your own competitor. No credit card.</p>
             </div>
         </div>
@@ -2465,7 +2473,7 @@ footer {
                 </div>
             </div>
             <div class="why-cta">
-                <a href="#waitlist" class="btn-primary">Uncover your competitors' playbook</a>
+                <a href="#waitlist" class="btn-primary">Uncover competitors' playbook</a>
             </div>
         </div>
     </section>
@@ -2783,7 +2791,7 @@ footer {
             <p class="waitlist-sub">We'll run Kompete on one competitor of yours and show you, live, what's working on the buyers you share.</p>
             <form class="waitlist-form" id="waitlist-form">
                 <input type="email" placeholder="Enter your work email" required aria-label="Email address">
-                <button type="submit" class="btn-primary">Uncover your competitors' playbook</button>
+                <button type="submit" class="btn-primary">Uncover competitors' playbook</button>
             </form>
             <p class="cta-micro">One competitor per demo. No credit card.</p>
         </div>
@@ -2821,35 +2829,46 @@ footer {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
             <div class="eap-body">
-                <h3 id="eap-title" class="eap-lead">We'll run Kompete on one competitor of yours and show you what's working on the buyers you share.</h3>
-                <form class="eap-form" id="eap-form">
-                    <input type="text" name="name" placeholder="Full name" required autocomplete="name">
-                    <input type="email" name="email" placeholder="Work email" required autocomplete="email">
-                    <input type="text" name="company" placeholder="Your company website (e.g. acme.com)" required autocomplete="url" inputmode="url">
-                    <div class="eap-competitors">
-                        <input type="text" name="competitor" placeholder="Competitor website (e.g. rival.com)" required inputmode="url" autocomplete="off">
+                <h3 id="eap-title" class="eap-lead">See what's working on the buyers you share with a competitor.</h3>
+                <p class="eap-sub">A live demo on your own market. Takes 30 seconds.</p>
+                <form class="eap-form" id="eap-form" novalidate>
+                    <div class="eap-row">
+                        <label class="eap-field"><span>Name</span>
+                            <input type="text" name="name" placeholder="Jane Doe" required autocomplete="name"></label>
+                        <label class="eap-field"><span>Role</span>
+                            <select name="role" required>
+                                <option value="" disabled selected>Choose</option>
+                                <option value="Founder / CEO">Founder / CEO</option>
+                                <option value="Marketing (CMO / PMM)">Marketing</option>
+                                <option value="Sales (CRO / VP Sales)">Sales</option>
+                                <option value="Product (CPO / PM)">Product</option>
+                                <option value="Strategy / Investor">Strategy / Investor</option>
+                                <option value="Other">Other</option>
+                            </select></label>
                     </div>
-                    <button type="button" class="eap-add-competitor">+ Add another competitor</button>
-                    <p class="eap-hint">The demo compares you with the first competitor, using a sample of their latest ads (usually 100–200). The others help us prepare your full setup.</p>
-                    <select name="role" required>
-                        <option value="" disabled selected>Your role</option>
-                        <option value="Founder / CEO">Founder / CEO</option>
-                        <option value="Marketing (CMO / PMM)">Marketing (CMO / PMM)</option>
-                        <option value="Sales (CRO / VP Sales)">Sales (CRO / VP Sales)</option>
-                        <option value="Product (CPO / PM)">Product (CPO / PM)</option>
-                        <option value="Strategy / Investor">Strategy / Investor</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <label class="eap-field"><span>Work email</span>
+                        <input type="email" name="email" placeholder="jane@acme.com" required autocomplete="email"></label>
+                    <div class="eap-row">
+                        <label class="eap-field"><span>Your website</span>
+                            <input type="text" name="company" placeholder="acme.com" required autocomplete="url" inputmode="url"></label>
+                        <label class="eap-field"><span>Competitor</span>
+                            <input type="text" name="competitor" placeholder="rival.com" required inputmode="url" autocomplete="off"></label>
+                    </div>
+                    <div class="eap-competitors"></div>
+                    <div class="eap-meta">
+                        <button type="button" class="eap-add-competitor">+ Add another competitor</button>
+                        <span class="eap-hint">Demo uses a sample of their latest ads</span>
+                    </div>
                     <button type="submit" class="eap-submit">Book my demo</button>
                     <p class="eap-error" aria-live="polite"></p>
-                    <p class="eap-micro">No spam. No credit card.</p>
                 </form>
                 <div class="eap-success" hidden>
                     <div class="eap-success-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
                     <h4>Your demo is on its way.</h4>
-                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time. Your demo covers <span class="eap-success-competitor"></span>, using a sample of their latest ads.</p>
+                    <p>We'll email you at <span class="eap-success-email"></span> within 24 hours to book a time.</p>
+                    <p class="eap-success-note">Your demo compares you with <span class="eap-success-competitor"></span>, using a sample of their latest ads (usually 100–200).</p>
                     <a class="eap-submit eap-calendar" href="#" target="_blank" rel="noopener" hidden>Pick a time</a>
                 </div>
             </div>
@@ -3092,7 +3111,7 @@ feeds.forEach(feed => {
     var eapCompetitors = eapForm ? eapForm.querySelector('.eap-competitors') : null;
     var eapAddCompetitor = eapForm ? eapForm.querySelector('.eap-add-competitor') : null;
     function competitorInputs() {
-        return eapCompetitors ? Array.prototype.slice.call(eapCompetitors.querySelectorAll('input[name="competitor"]')) : [];
+        return eapForm ? Array.prototype.slice.call(eapForm.querySelectorAll('input[name="competitor"]')) : [];
     }
     if (eapAddCompetitor) {
         eapAddCompetitor.addEventListener('click', function () {
@@ -3101,7 +3120,8 @@ feeds.forEach(feed => {
             var input = document.createElement('input');
             input.type = 'text';
             input.name = 'competitor';
-            input.placeholder = 'Another competitor (optional)';
+            input.placeholder = 'another-rival.com (optional)';
+            input.setAttribute('aria-label', 'Another competitor website');
             input.inputMode = 'url';
             input.autocomplete = 'off';
             input.addEventListener('input', function () { input.classList.remove('eap-invalid'); });
